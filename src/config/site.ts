@@ -46,24 +46,21 @@ export type BrandContent = {
 };
 
 export const brandContent: BrandContent = {
-  name: "CalmaMeals",
-  tagline: "IA gentil para planos saudáveis e deliciosos",
+  name: "Flux ID",
+  tagline: "Validação white-label pronta em minutos",
 };
 
 export const metadataConfig = {
-  title: `${brandContent.name} · Alimentação saudável sem complicação`,
-  description:
-    "Planeje cardápios equilibrados com IA: receitas reais, lista de compras organizada e planos que respeitam seu humor diário.",
+  title: `${brandContent.name} · Template white-label Next.js`,
+  description: "",
   keywords: [
-    "alimentação saudável",
-    "cardápio semanal",
-    "receitas rápidas",
-    "lista de compras",
-    "ia",
-    "nutrição",
+    "white-label",
+    "next.js template",
+    "landing page",
+    "component library",
   ],
-  authors: [{ name: "Equipe CalmaMeals" }],
-  colorScheme: "light" as const,
+  authors: [{ name: "Flux Team" }],
+  colorScheme: "dark" as const,
   creator: brandContent.name,
 };
 

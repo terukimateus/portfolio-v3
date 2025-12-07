@@ -32,8 +32,6 @@ export interface PricingColumnProps
   icon?: ReactNode;
   description: string;
   price: number;
-  currency?: string;
-  pricePeriod?: string;
   showDiscounts?: boolean;
   originalPrice?: number;
   discountCode?: string;
@@ -51,8 +49,6 @@ export function PricingColumn({
   icon,
   description,
   price,
-  currency = "R$",
-  pricePeriod = "por mês",
   showDiscounts = false,
   originalPrice,
   discountCode,
@@ -75,7 +71,7 @@ export function PricingColumn({
     >
       <hr
         className={cn(
-          "via-foreground/60 absolute top-0 left-[10%] h-px w-[80%] border-0 bg-linear-to-r from-transparent to-transparent",
+          "via-foreground/60 absolute top-0 left-[10%] h-[1px] w-[80%] border-0 bg-linear-to-r from-transparent to-transparent",
           variant === "glow-brand" && "via-brand",
         )}
       />
@@ -107,16 +103,17 @@ export function PricingColumn({
             <div className="flex flex-col gap-1">
               <div className="flex items-baseline gap-1">
                 <span className="text-muted-foreground text-2xl font-bold">
-                  {currency}
+                  $
                 </span>
                 <span className="text-6xl font-bold">{price}</span>
               </div>
             </div>
-            <div className="flex min-h-10 flex-col">
+            <div className="flex min-h-[40px] flex-col">
               {price > 0 && (
                 <>
-                  <span className="text-sm font-semibold text-foreground">
-                    {pricePeriod}
+                  <span className="text-sm">one-time payment</span>
+                  <span className="text-muted-foreground text-sm">
+                    plus local taxes
                   </span>
                 </>
               )}
@@ -127,7 +124,7 @@ export function PricingColumn({
               {discountCode && (
                 <p className="text-brand-foreground text-sm font-medium">
                   {discountPercentage}% off with code{" "}
-                  <Badge variant="secondary">{discountCode}</Badge>
+                  <Badge variant="brand-secondary">{discountCode}</Badge>
                 </p>
               )}
             </div>
@@ -136,7 +133,7 @@ export function PricingColumn({
         <Button variant={cta.variant} size="lg" asChild>
           <Link href={cta.href}>{cta.label}</Link>
         </Button>
-  <p className="text-muted-foreground min-h-10 max-w-[220px] text-sm">
+        <p className="text-muted-foreground min-h-[40px] max-w-[220px] text-sm">
           {priceNote}
         </p>
         <hr className="border-input" />

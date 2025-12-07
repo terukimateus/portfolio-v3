@@ -1,80 +1,73 @@
-import { Check } from "lucide-react";
+import { CodeComparison2 } from "@/components/CodeComparison";
+import Stats from "@/components/Stats";
+import { FileCode2, Sparkles } from "lucide-react";
 
-import Card from "@/components/Card";
+const beforeCode = String.raw`function validateCPF(value: string) {
+  const clean = value.replace(/\\D/g, "")
+  if (clean.length !== 11 || /(\\d)\\1{10}/.test(clean)) return false
 
-const trustBadges = [
-  "✔ Para família",
-  "✔ Para iniciantes",
-  "✔ Para rotina corrida",
-  "✔ Para quem não sabe cozinhar",
+  const calcDigit = (slice: number) => {
+    let sum = 0
+    for (let i = 0; i < slice; i++) {
+      sum += Number(clean[i]) * (slice + 1 - i)
+    }
+    const rest = (sum * 10) % 11
+    return rest === Number(clean[slice])
+  }
+
+  return calcDigit(9) && calcDigit(10)
+}
+
+const normalisePhone = (phone: string) => {
+  const clean = phone.replace(/\\D/g, "")
+  if (clean.length !== 11) throw new Error("Telefone inválido")
+  return "(" + clean.slice(0, 2) + ") " + clean.slice(2, 7) + "-" + clean.slice(7)
+}`;
+
+const afterCode = String.raw`import { Cpf, Cnpj, Pix } from "br-docs";
+
+Cpf.isValid("123.456.789-09"); // true
+
+Cnpj.isValid("11.222.333/0001-81"); // true
+
+Cnh.isValid("12345678901"); // true
+
+Pix.isValid("123.456.789-09"); // true
+Pix.isValid("test@example.com"); // true`;
+
+const comparisonPages = [
+  {
+    name: "before.ts",
+    icon: <FileCode2 className="h-4 w-4" />,
+    code: beforeCode,
+  },
+  {
+    name: "br-docs.ts",
+    icon: <Sparkles className="h-4 w-4" />,
+    code: afterCode,
+  },
 ];
 
 export default function WhyUseBrDocs() {
   return (
-    <section
-      id="porque-confiar"
-      className="relative py-20 px-4 sm:px-6 lg:px-8"
-      style={{
-        background:
-          "linear-gradient(120deg, rgba(124, 58, 237, 0.08), rgba(255, 191, 169, 0.12))",
-      }}
-    >
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="grid-line absolute inset-0 opacity-20" />
-      </div>
-      <div className="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-        <div className="space-y-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.4em] text-primary">
-            confiança real
-          </p>
-          <h2 className="text-4xl font-bold leading-tight text-balance text-foreground md:text-5xl">
-            “Criado para pessoas que querem comer melhor sem virar refém de dieta.”
+    <section id="whyuse" className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-12 text-center lg:text-left lg:grid-cols-[1.1fr_1fr] lg:items-center">
+        <div>
+          <h2 className="text-4xl font-bold leading-tight md:text-5xl">
+            Por que usar o br-docs?
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Planos feitos por IA + nutricionistas, com linguagem leve, ingredientes acessíveis e rotinas pensadas para famílias, solos e quem está começando.
+          <p className="mt-4 text-lg text-muted-foreground">
+            O br-docs elimina códigos duplicados, regras frágeis e regex perdido
+            no projeto — entregando validações precisas, padronizadas e testadas
+            para CNPJ, CPF, CEP, CNH, boleto, telefone e muito mais.
           </p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {trustBadges.map((badge) => (
-              <div
-                key={badge}
-                className="flex items-center gap-3 rounded-2xl border border-border/60 bg-white/80 px-4 py-3 text-left text-sm font-semibold text-foreground shadow-sm backdrop-blur"
-              >
-                <span className="inline-flex size-8 items-center justify-center rounded-full bg-primary/15 text-primary">
-                  <Check className="size-4" />
-                </span>
-                {badge}
-              </div>
-            ))}
+
+          <div className="mt-8 space-y-4">
+            <Stats />
           </div>
         </div>
 
-        <div className="relative">
-          <div className="absolute -left-6 top-6 size-20 rounded-full bg-accent/40 blur-3xl" />
-          <div className="absolute -right-4 bottom-0 size-24 rounded-full bg-primary/30 blur-3xl" />
-          <div className="relative space-y-4">
-            <Card className="items-start gap-3 rounded-3xl border border-border/50 bg-white p-6 text-left shadow-xl">
-              <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                selo de cuidado
-              </p>
-              <p className="text-3xl font-bold text-foreground">+120k refeições planejadas</p>
-              <p className="text-sm text-muted-foreground">
-                Comunidade compartilhando favoritinhos todos os dias.
-              </p>
-            </Card>
-            <Card className="items-start gap-4 rounded-3xl border border-border/50 bg-white p-6 text-left shadow-xl">
-              <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                  badgezinhos especiais
-                </p>
-                <div className="mt-4 space-y-2 text-sm text-foreground">
-                  <p>• Planos com ingredientes brasileiros</p>
-                  <p>• Porções ajustáveis para família</p>
-                  <p>• Passo a passo com tempo real</p>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
+        <CodeComparison2 pages={comparisonPages} />
       </div>
     </section>
   );

@@ -259,17 +259,10 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   return (
-    <a
-      href="#hero"
-      className="relative z-20 mr-4 flex items-center gap-3 rounded-full px-3 py-1 text-sm font-normal text-black"
-    >
-      <span className="inline-flex size-9 items-center justify-center rounded-full bg-secondary text-2xl">
-        🥗
+    <a className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black">
+      <span className="font-medium text-foreground text-2xl ">
+        {"🇧🇷 br-docs"}
       </span>
-      <div className="leading-tight">
-        <p className="text-base font-bold text-foreground">CalmaMeals</p>
-        <p className="text-xs text-muted-foreground">IA gentil para comer bem</p>
-      </div>
     </a>
   );
 };

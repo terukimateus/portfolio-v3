@@ -1,95 +1,101 @@
-import Card from "@/components/Card";
+import { CheckCircle, Rocket, Package, Users } from "lucide-react";
 
-const lifestyleFeatures = [
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import { CarouselIllustration } from "@/components/CarouselIllustration";
+import GlobeIllustration from "@/components/GlobeIllustration";
+import { CommitStack } from "@/components/CommitStack";
+import NetworkIllustration from "@/components/NetworkIllustration";
+
+const features = [
   {
-    emoji: "🍑",
-    title: "Recomendações baseadas no seu humor",
+    Icon: CheckCircle,
+    name: "Validação Completa",
     description:
-      "“Quero algo leve”, “Quero um doce saudável”, “Quero algo rápido”. A IA entende seu desejo do momento e sugere pratos realistas.",
-    tags: ["Humor + IA", "Zero culpa"],
-    accent: "#FFEAD1",
+      "Valide CPF, CNPJ, CEP, CNH, telefone, e-mail, PIX, boletos e códigos de barras com precisão e um único clique.",
+    href: "#validacao",
+    cta: "Explorar",
+    className: "col-span-3 lg:col-span-2",
+    background: (
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <CarouselIllustration className="top-10! h-auto absolute! max-w-4xl" />
+        <div className="absolute inset-x-0 bottom-0 h-32 pointer-events-none bg-linear-to-t from-black/70 via-black/30 to-transparent" />
+      </div>
+    ),
   },
   {
-    emoji: "🥑",
-    title: "Receitas em 10 minutos",
+    Icon: Rocket,
+    name: "Altíssima Performance",
     description:
-      "Pratos simples, gostosos e possíveis para a rotina real. Passo a passo claro, com substituições saudáveis.",
-    tags: ["Até 10 min", "Ingredientes acessíveis"],
-    accent: "#FFBFA9",
+      "Desempenho otimizado para aplicações de alta demanda, garantindo respostas rápidas e eficientes.",
+    href: "#performance",
+    cta: "Descobrir",
+    className: "col-span-3 lg:col-span-1",
+    background: (
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
+        <div className="relative w-full max-w-lg">
+          <GlobeIllustration className="w-full h-auto transform-gpu scale-90" />
+
+          <div className="absolute inset-x-0 bottom-0 h-32 pointer-events-none bg-linear-to-t from-black/70 via-black/30 to-transparent" />
+        </div>
+      </div>
+    ),
   },
   {
-    emoji: "🍓",
-    title: "Cardápio semanal automático",
+    Icon: Users,
+    name: "Open-Source",
     description:
-      "Gere um cardápio equilibrado em 1 clique. Ajuste porções, troque refeições e mantenha tudo balanceado.",
-    tags: ["Planejamento smart", "Auto-ajustes"],
-    accent: "#F9FAFB",
+      "Comunidade ativa, GitHub aberto e contribuições guiadas pela transparência e segurança.",
+    className: "col-span-3 lg:col-span-1",
+    background: (
+      <div className="absolute inset-0 z-0">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,23,42,0.65),transparent_80%)] blur-4xl" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-[40px] bg-linear-to-br from-emerald-400/50 via-emerald-400/10 to-transparent blur-3xl" />
+
+        <div className="flex h-full w-full items-center justify-center">
+          <CommitStack />
+          <div className="absolute inset-x-0 bottom-0 z-100 h-32 pointer-events-none bg-linear-to-t from-black via-black/60 to-transparent" />
+        </div>
+      </div>
+    ),
   },
   {
-    emoji: "🧺",
-    title: "Lista de compras organizada",
+    Icon: Package,
+    name: "Zero Dependências",
     description:
-      "Receba uma lista dividida por categorias com quantidades sugeridas. Marque itens e compartilhe com a família.",
-    tags: ["Categoria por categoria", "Compartilhável"],
-    accent: "#EBD8FF",
+      "Pacote leve que roda sem nada além do Node.js, ideal para embarcar em qualquer projeto.",
+    href: "#zero-dependencias",
+    cta: "Ver detalhes",
+    className: "col-span-3 lg:col-span-2",
+    background: (
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="flex h-full w-full items-center justify-center">
+          <NetworkIllustration icon={Package} />
+          <div className="absolute z-10 inset-x-0 bottom-0 h-32 pointer-events-none bg-linear-to-t from-black via-black/50 to-transparent" />
+        </div>
+      </div>
+    ),
   },
 ];
 
 export function Features() {
   return (
-    <section
-      id="features"
-      className="relative py-20 px-4 sm:px-6 lg:px-8"
-      style={{
-        background:
-          "linear-gradient(180deg, rgba(255, 234, 209, 0.35) 0%, rgba(249, 250, 251, 1) 100%)",
-      }}
-    >
-      <div className="absolute inset-0 pointer-events-none opacity-30">
-        <div className="grid-line h-full w-full" />
-      </div>
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-12">
-        <div className="space-y-4 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-            lifestyle + bem-estar
-          </p>
-          <h2 className="text-4xl font-bold leading-tight text-foreground md:text-5xl">
-            Tudo pensado para cuidar de você
+    <section id="features" className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-10">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold leading-tight text-white md:text-5xl">
+            Funcionalidades
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Use a IA para planejar, cozinhar e comprar com carinho — sempre com cores pastel, comida de verdade e zero complicação.
+          <p className="mt-3 text-lg text-muted-foreground">
+            Tudo que você precisa para trabalhar com documentos brasileiros com
+            segurança e performance.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {lifestyleFeatures.map((feature) => (
-            <Card
-              key={feature.title}
-              className="items-start gap-4 rounded-3xl border border-border/60 bg-white/90 p-6 text-left shadow-lg backdrop-blur"
-              style={{ background: `linear-gradient(180deg, ${feature.accent} 0%, rgba(255,255,255,0.95) 100%)` }}
-            >
-              <div className="inline-flex size-12 items-center justify-center rounded-2xl bg-white/70 text-3xl shadow-inner">
-                {feature.emoji}
-              </div>
-              <div className="space-y-3">
-                <h3 className="text-2xl font-semibold text-foreground">{feature.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {feature.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {feature.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-foreground/5 px-3 py-1 text-xs font-semibold text-foreground/70"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Card>
+        <BentoGrid className="gap-6">
+          {features.map((feature) => (
+            <BentoCard key={feature.name} {...feature} />
           ))}
-        </div>
+        </BentoGrid>
       </div>
     </section>
   );

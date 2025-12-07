@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nunito, Outfit } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { AppProviders } from "@/providers/app-providers";
@@ -8,16 +8,14 @@ import { metadataConfig } from "@/config/site";
 
 import "./globals.css";
 
-const nunito = Nunito({
-  variable: "--font-nunito",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: "swap",
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -38,7 +36,7 @@ export default function RootLayout({
     <html lang="pt-BR" className="light">
       <body
         style={mapColorsToCSSVariables(brandColors)}
-  className={`${nunito.variable} ${outfit.variable} font-sans bg-background text-foreground antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-[var(--background)] text-[var(--foreground)] antialiased`}
       >
         <AppProviders>{children}</AppProviders>
       </body>

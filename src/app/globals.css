@@ -1,6 +1,9 @@
-/* stylelint-disable */
 @import "tailwindcss";
 @import "tw-animate-css";
+@layer components {
+  @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Fira+Code:wght@300..700&display=swap");
+}
+
 code {
   font-family: "Fira Code", monospace;
 }
@@ -8,83 +11,84 @@ code {
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #f9fafb;
-  --foreground: #2b0f14;
-  --card: #fffdf9;
-  --card-foreground: #2b0f14;
-  --popover: #fffdf9;
-  --popover-foreground: #2b0f14;
-  --brand: #7c3aed;
-  --brand-foreground: #f6edff;
-  --primary: #7c3aed;
-  --primary-foreground: #fefbff;
-  --secondary: #ffe4d4;
-  --secondary-foreground: #2b0f14;
-  --muted: #fdeee3;
-  --muted-foreground: rgba(43, 15, 20, 0.7);
-  --accent: #ffbfa9;
-  --accent-foreground: #2b0f14;
-  --destructive: #ff6b6b;
-  --destructive-foreground: #fff8f6;
-  --border: rgba(43, 15, 20, 0.08);
-  --input: rgba(124, 58, 237, 0.18);
-  --ring: #7c3aed;
-  --chart-1: #7c3aed;
-  --chart-2: #ffbfa9;
-  --chart-3: #ffe9d1;
-  --chart-4: #f472b6;
-  --chart-5: #a5b4fc;
-  --radius: 0.875rem;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #2b0f14;
-  --sidebar-primary: #7c3aed;
-  --sidebar-primary-foreground: #fff9f5;
-  --sidebar-accent: #ffe9d1;
-  --sidebar-accent-foreground: #2b0f14;
-  --sidebar-border: rgba(43, 15, 20, 0.08);
-  --sidebar-ring: #7c3aed;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --brand: #009c3b;
+  --brand-foreground: #d2ff07;
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
 }
 
 .dark {
-  --background: #110816;
-  --foreground: #fefaf5;
-  --card: #1b0f24;
-  --card-foreground: #fefaf5;
-  --popover: #1b0f24;
-  --popover-foreground: #fefaf5;
-  --brand: #c4a1ff;
-  --brand-foreground: #1b0f24;
-  --primary: #a279ff;
-  --primary-foreground: #0d0319;
-  --secondary: #2a1b37;
-  --secondary-foreground: #fefaf5;
-  --muted: #2b2133;
-  --muted-foreground: rgba(255, 234, 209, 0.7);
-  --accent: #ffbfa9;
-  --accent-foreground: #1b0f24;
-  --destructive: #ff8e8e;
-  --destructive-foreground: #1b0f24;
-  --border: rgba(250, 244, 237, 0.18);
-  --input: rgba(194, 161, 255, 0.4);
-  --ring: #c4a1ff;
-  --chart-1: #a279ff;
-  --chart-2: #ffbfa9;
-  --chart-3: #ffe9d1;
-  --chart-4: #f472b6;
-  --chart-5: #7c3aed;
-  --sidebar: #160b1f;
-  --sidebar-foreground: #fefaf5;
-  --sidebar-primary: #c4a1ff;
-  --sidebar-primary-foreground: #110816;
-  --sidebar-accent: #271330;
-  --sidebar-accent-foreground: #fefaf5;
-  --sidebar-border: rgba(194, 161, 255, 0.3);
-  --sidebar-ring: #c4a1ff;
+  /* Updated dark theme colors to use Brazilian green accent */
+  --background: oklch(17.304% 0.00002 271.152);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.12 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.12 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --brand: #009c3b;
+  --brand-foreground: oklch(35.569% 0.11492 143.422);
+  --primary: #009c3b;
+  --primary-foreground: oklch(0.08 0 0);
+  --secondary: oklch(0.2 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.6 0 0);
+  --accent: #27272a;
+  --accent-foreground: oklch(0.08 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: #d8d9dd;
+  --input: oklch(0.15 0 0);
+  --ring: #009c3b;
+  --chart-1: #009c3b;
+  --chart-2: #4dba76;
+  --chart-3: #7fcd9d;
+  --chart-4: #b3e1c3;
+  --chart-5: #e6f6ea;
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: #009c3b;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: #009c3b;
 }
 
 @theme inline {
-  --font-sans: var(--font-nunito), "Nunito", "Outfit", "Madera Soft", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "Fira Code", var(--font-outfit), "Nunito", monospace;
+  --font-sans: "Cabin", "Geist Fallback";
+  --font-mono: "Cabin", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color--brand: var(--brand);
@@ -151,106 +155,59 @@ code {
 
 @layer base {
   * {
-    border-color: var(--border);
-    outline-color: color-mix(in srgb, var(--ring) 50%, transparent);
+    @apply border-border outline-ring/50;
   }
   body {
-    background-color: var(--background);
-    color: var(--foreground);
+    @apply bg-background text-foreground;
   }
 }
 
+/* Custom effects for br-docs theme */
 .neon-glow {
-  box-shadow: 0 20px 45px rgba(124, 58, 237, 0.15);
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  box-shadow: 0 0 20px rgba(0, 156, 59, 0.3);
+  border: 1px solid rgba(0, 156, 59, 0.2);
 }
 
 .neon-glow-strong {
-  box-shadow: 0 30px 80px rgba(255, 191, 169, 0.35);
-  border: 1px solid rgba(255, 191, 169, 0.4);
+  box-shadow: 0 0 30px rgba(0, 156, 59, 0.5);
+  border: 1px solid rgba(77, 186, 118, 0.4);
 }
 
 .text-glow {
-  text-shadow: 0 10px 25px rgba(124, 58, 237, 0.35);
+  text-shadow: 0 0 20px rgba(0, 156, 59, 0.5);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #ffbfa9 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #4dba76 0%, #009c3b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .grid-line {
-  background-image: linear-gradient(rgba(124, 58, 237, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 191, 169, 0.08) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(0, 156, 59, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 156, 59, 0.05) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
-.font-display {
-  font-family: var(--font-outfit), "Outfit", "Nunito", "Madera Soft", sans-serif;
-  letter-spacing: -0.02em;
-}
-
-.font-soft {
-  font-family: "Madera Soft", var(--font-nunito), "Nunito", sans-serif;
-}
-
 .glass-1 {
-  border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--card) 90%, transparent), color-mix(in srgb, var(--card) 55%, transparent));
-  backdrop-filter: blur(18px);
-}
-
-.dark .glass-1 {
-  border-color: color-mix(in srgb, var(--border) 35%, transparent);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--card) 35%, transparent), color-mix(in srgb, var(--card) 10%, transparent));
+  @apply border border-border bg-linear-to-b from-card/80 to-card/40 dark:border-border/10 dark:border-b-border/5 dark:border-t-border/20 dark:from-card/5 dark:to-card/0;
 }
 
 .glass-2 {
-  border: 1px solid color-mix(in srgb, var(--border) 65%, transparent);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--card) 85%, transparent), color-mix(in srgb, var(--card) 70%, transparent));
-  backdrop-filter: blur(22px);
-}
-
-.dark .glass-2 {
-  border-color: color-mix(in srgb, var(--border) 40%, transparent);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--card) 30%, transparent), color-mix(in srgb, var(--card) 18%, transparent));
+  @apply border border-border bg-linear-to-b from-card/100 to-card/80 dark:border-border/10 dark:border-b-border/5 dark:border-t-border/20 dark:from-card/10 dark:to-card/5;
 }
 
 .glass-3 {
-  border: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 25%, transparent), color-mix(in srgb, var(--accent) 5%, transparent));
-  backdrop-filter: blur(24px);
-}
-
-.dark .glass-3 {
-  border-color: color-mix(in srgb, var(--border) 35%, transparent);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 20%, transparent), color-mix(in srgb, var(--primary) 6%, transparent));
+  @apply border border-border bg-linear-to-b from-card/30 to-card/20 dark:border-border/10 dark:border-t-border/20 dark:border-b-border/5 dark:from-primary/5 dark:to-primary/20;
 }
 
 .glass-4 {
-  border: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
-  border-bottom-width: 0;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--card) 70%, transparent), color-mix(in srgb, var(--card) 30%, transparent));
-  backdrop-filter: blur(26px);
-}
-
-.dark .glass-4 {
-  border-color: color-mix(in srgb, var(--border) 40%, transparent);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 25%, transparent), color-mix(in srgb, var(--primary) 8%, transparent));
+  @apply border border-border border-b-input/90 bg-linear-to-b from-card/60 to-card/20 dark:border-border/10 dark:border-t-border/30 dark:from-primary/10 dark:to-primary/5 dark:border-b-0;
 }
 
 .glass-5 {
-  border: 1px solid color-mix(in srgb, var(--border) 45%, transparent);
-  border-bottom-width: 0;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--card) 60%, transparent), color-mix(in srgb, var(--card) 15%, transparent));
-  backdrop-filter: blur(28px);
-}
-
-.dark .glass-5 {
-  border-color: color-mix(in srgb, var(--border) 35%, transparent);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 30%, transparent), color-mix(in srgb, var(--primary) 10%, transparent));
+  @apply border border-border border-b-input bg-linear-to-b from-card/100 to-card/20 dark:border-border/10 dark:border-t-border/30 dark:from-primary/15 dark:to-primary/5 dark:border-b-0;
 }
 
 @layer utilities {

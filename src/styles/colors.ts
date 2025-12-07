@@ -11,15 +11,15 @@ export type BrandColors = {
 };
 
 export const brandColors: BrandColors = {
-  background: "#F9FAFB",
-  surface: "#FFEAD1",
-  surfaceMuted: "#FFBFA9",
-  foreground: "#2B0F14",
-  primary: "#7C3AED",
-  secondary: "#FFBFA9",
-  accent: "#FFEAD1",
-  border: "rgba(43, 15, 20, 0.08)",
-  muted: "rgba(43, 15, 20, 0.65)",
+  background: "#05060b",
+  surface: "#0d101b",
+  surfaceMuted: "#151a29",
+  foreground: "#f7f9ff",
+  primary: "#0fe3b1",
+  secondary: "#7c5dff",
+  accent: "#ffb347",
+  border: "rgba(255, 255, 255, 0.08)",
+  muted: "rgba(255, 255, 255, 0.6)",
 };
 
 export function mapColorsToCSSVariables(colors: BrandColors) {

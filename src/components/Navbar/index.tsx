@@ -11,13 +11,13 @@ import {
   NavBody,
   NavItems,
 } from "../ui/ResibleNavbar";
+import Icon from "../Icon";
 
 const navItems = [
-  { name: "Recursos", link: "features" },
-  { name: "Confiança", link: "porque-confiar" },
-  { name: "Planos", link: "pricing" },
+  { name: "Funcionalidades", link: "features" },
+  { name: "Diferencial", link: "whyuse" },
+  { name: "Instale", link: "install" },
   { name: "Depoimentos", link: "testimonials" },
-  { name: "Instalar", link: "install" },
 ];
 
 const NavbarFeat = () => {
@@ -43,13 +43,16 @@ const NavbarFeat = () => {
       <NavBody>
         <NavbarLogo />
         <NavItems items={navItems} />
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <NavbarButton
-            href="#hero"
-            variant="gradient"
-            className="bg-linear-to-r from-primary to-primary/80 text-white"
+            href="https://github.com/terukimateus/br-docs"
+            target="_blank"
+            variant="primary"
           >
-            Criar plano saudável
+            <div className="flex items-center gap-1">
+              <Icon family="Lucide" name="LuGithub" size={18} />
+              br-docs
+            </div>
           </NavbarButton>
         </div>
       </NavBody>
@@ -81,12 +84,15 @@ const NavbarFeat = () => {
           ))}
           <div className="flex w-full flex-col gap-4">
             <NavbarButton
-              href="#hero"
+              href="https://github.com/terukimateus/br-docs"
               onClick={() => setIsMobileMenuOpen(false)}
-              variant="gradient"
-              className="bg-linear-to-r from-primary to-primary/80 text-white"
+              target="_blank"
+              variant="primary"
             >
-              Criar plano saudável
+              <div className="flex items-center gap-1">
+                <Icon family="Lucide" name="LuGithub" size={18} />
+                br-docs
+              </div>
             </NavbarButton>
           </div>
         </MobileNavMenu>

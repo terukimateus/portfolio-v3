@@ -1,3 +1,5 @@
+import { User, Users } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 import {
   PricingColumn,
@@ -13,68 +15,67 @@ interface PricingProps {
 }
 
 export default function Pricing({
-  title = "Planos fofos, transparentes",
-  description =
-    "Escolha como quer cuidar da sua alimentação: teste grátis, IA ilimitada ou plano pensado para a família inteira.",
+  title = "Build your dream landing page, today.",
+  description = "Get lifetime access to all the components. No recurring fees. Just simple, transparent pricing.",
   plans = [
     {
       name: "Free",
-      description: "Ideal para experimentar o cuidado saudável.",
+      description: "For everyone starting out on a website for their big idea",
       price: 0,
-      priceNote: "✔ 15 receitas • ✔ 1 plano semanal",
+      priceNote: "Free and open-source forever.",
       cta: {
         variant: "glow",
-        label: "Começar grátis",
-        href: "#hero",
-      },
-      features: ["✔ 15 receitas", "✔ 1 plano semanal"],
-      variant: "default",
-      currency: "R$",
-      pricePeriod: "para sempre",
-    },
-    {
-      name: "Plus",
-      description: "Para viver a experiência completa com IA personalizada.",
-      price: 14,
-      priceNote: "Tudo ilimitado + IA personalizada + lista inteligente.",
-      cta: {
-        variant: "default",
-        label: "Quero o Plus",
-        href: "#hero",
+        label: "Get started for free",
+        href: "/docs/getting-started/introduction",
       },
       features: [
-        "✔ Tudo ilimitado",
-        "✔ IA personalizada",
-        "✔ Lista inteligente",
+        "1 website template",
+        "9 blocks and sections",
+        "4 custom animations",
+      ],
+      variant: "default",
+      className: "hidden lg:flex",
+    },
+    {
+      name: "Pro",
+      icon: <User className="size-4" />,
+      description: "For early-stage founders, solopreneurs and indie devs",
+      price: 149,
+      priceNote: "Lifetime access. Free updates. No recurring fees.",
+      cta: {
+        variant: "default",
+        label: "Get all-access",
+        href: "https://www.launchuicomponents.com/",
+      },
+      features: [
+        `$1000 templates`,
+        `$1000 blocks and sections`,
+        `$1000 illustrations`,
+        `$1000 custom animations`,
       ],
       variant: "glow-brand",
-      currency: "R$",
-      pricePeriod: "por mês",
     },
     {
-      name: "Family",
-      description: "Plano para família com rotinas sincronizadas.",
-      price: 29,
-      priceNote: "Cardápio familiar + ajuste de porções + dicas nutritivas.",
+      name: "Pro Team",
+      icon: <Users className="size-4" />,
+      description: "For teams and agencies working on cool products together",
+      price: 749,
+      priceNote: "Lifetime access. Free updates. No recurring fees.",
       cta: {
         variant: "default",
-        label: "Plano família",
-        href: "#hero",
+        label: "Get all-access for your team",
+        href: "https://www.launchuicomponents.com/",
       },
       features: [
-        "✔ Cardápio familiar",
-        "✔ Ajuste de porções",
-        "✔ Dicas nutritivas",
+        "All the templates, components and sections available for your entire team",
       ],
       variant: "glow",
-      currency: "R$",
-      pricePeriod: "por mês",
     },
   ],
   className = "",
 }: PricingProps) {
   return (
-    <SectionContainer id="pricing" className={cn(className)}>
+    <SectionContainer className={cn(className)}>
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-12">
         {(title || description) && (
           <div className="flex flex-col items-center gap-4 px-4 text-center sm:gap-8">
