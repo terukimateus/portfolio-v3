@@ -61,7 +61,7 @@ export function PricingColumn({
 }: PricingColumnProps) {
   const discountPercentage =
     originalPrice && price
-      ? Math.round(((originalPrice - price) / originalPrice) * 100)
+      ? Math.round(((originalPrice - Number(price)) / originalPrice) * 100)
       : 0;
 
   return (
@@ -109,7 +109,7 @@ export function PricingColumn({
               </div>
             </div>
             <div className="flex min-h-10 flex-col">
-              {price > 0 && (
+              {Number(price) > 0 && (
                 <>
                   <span className="text-sm">pagamento único</span>
                   <span className="text-muted-foreground text-sm">
