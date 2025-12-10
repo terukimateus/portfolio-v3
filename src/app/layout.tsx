@@ -23,7 +23,8 @@ export const metadata: Metadata = {
   keywords: metadataConfig.keywords,
   authors: metadataConfig.authors,
   creator: metadataConfig.creator,
-  colorScheme: metadataConfig.colorScheme,
+  robots: metadataConfig.robots,
+  icons: metadataConfig.icons,
 };
 
 export default function RootLayout({
@@ -34,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-[var(--background)] text-[var(--foreground)] antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}
       >
         <AppProviders>{children}</AppProviders>
       </body>

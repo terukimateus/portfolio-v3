@@ -30,7 +30,7 @@ const CASE_STUDIES: CaseStudy[] = [
     result: "Página mais clara e tempo de carregamento 60% menor.",
     mockup: "safari",
     image: "/hero.png",
-    url: "shift.studio/cases/shift-hero",
+    url: "https://brdocs.terukimateus.dev/",
   },
   {
     id: "alessandra-mobile",
@@ -41,7 +41,8 @@ const CASE_STUDIES: CaseStudy[] = [
     result:
       "Aumento de 45% na conversão de visitantes em clientes através do novo site.",
     mockup: "mobile",
-    image: "/alessandra-lp.png",
+    url: "http://aferreirasexologia.com.br/",
+    image: "./alessandra-lp.png",
   },
 ];
 
@@ -106,7 +107,13 @@ export function ResultsCases() {
                           asChild
                           className="h-9 border border-border/50"
                         >
-                          <a href={caseStudy.url ?? "#"}>Ver projeto</a>
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={caseStudy.url ?? "#"}
+                          >
+                            Ver projeto
+                          </a>
                         </Button>
                       )}
                     </div>
@@ -122,7 +129,13 @@ export function ResultsCases() {
                           asChild
                           className="border mt-3 border-border/50"
                         >
-                          <a href={caseStudy.url ?? "#"}>Ver projeto</a>
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={caseStudy.url ?? "#"}
+                          >
+                            Ver projeto
+                          </a>
                         </Button>
                       </>
                     ) : (

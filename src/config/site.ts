@@ -1,4 +1,5 @@
 import type { BrandColors } from "@/styles/colors";
+import { Metadata } from "next";
 
 export type NavigationItem = {
   label: string;
@@ -46,21 +47,37 @@ export type BrandContent = {
 };
 
 export const brandContent: BrandContent = {
-  name: "Flux ID",
-  tagline: "Validação white-label pronta em minutos",
+  name: "Shift Studio",
+  tagline: "Landing pages que convertem",
 };
 
-export const metadataConfig = {
-  title: `${brandContent.name} · Template white-label Next.js`,
+export const metadataConfig: Metadata = {
+  title: `${brandContent.name} · ${brandContent.tagline}`,
   description: "",
   keywords: [
-    "white-label",
-    "next.js template",
-    "landing page",
-    "component library",
+    "landing pages",
+    "design de landing pages",
+    "desenvolvimento web",
+    "otimização de conversão",
+    "experiência do usuário",
+    "UX",
+    "UI",
+    "design responsivo",
+    "marketing digital",
+    "aumento de receita",
+    "aquisição de clientes",
   ],
-  authors: [{ name: "Flux Team" }],
-  colorScheme: "dark" as const,
+  authors: [{ name: "Shift Team" }],
+  robots: "index, follow",
+  icons: {
+    icon: [
+      {
+        url: "/icon.png",
+        type: "image/png",
+      },
+    ],
+    apple: "/apple-icon.png",
+  },
   creator: brandContent.name,
 };
 
