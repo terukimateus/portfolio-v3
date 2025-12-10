@@ -9,6 +9,7 @@ import { useRef } from "react";
 type ScrollRevealProps = {
   children: ReactNode;
   className?: string;
+  id?: string;
   /**
    * Controls how much of the scroll progress is needed (0-1) before the
    * content is fully visible.
@@ -23,6 +24,7 @@ type ScrollRevealProps = {
 export function ScrollRevealSection({
   children,
   className,
+  id,
   threshold = 0.35,
   yOffset = 40,
 }: ScrollRevealProps) {
@@ -56,6 +58,7 @@ export function ScrollRevealSection({
   return (
     <motion.section
       ref={ref}
+      id={id}
       className={cn("will-change-transform", className)}
       style={{ opacity, y: translateY }}
     >

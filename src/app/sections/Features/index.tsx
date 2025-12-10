@@ -1,101 +1,107 @@
-import { CheckCircle, Rocket, Package, Users } from "lucide-react";
+import { Building2, Rocket, Wrench } from "lucide-react";
 
-import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
-import { CarouselIllustration } from "@/components/CarouselIllustration";
-import GlobeIllustration from "@/components/GlobeIllustration";
-import { CommitStack } from "@/components/CommitStack";
-import NetworkIllustration from "@/components/NetworkIllustration";
+import { SectionContainer } from "@/components/SectionContainer";
+import {
+  PricingColumn,
+  type PricingColumnProps,
+} from "@/components/ui/pricing-column";
 
-const features = [
+type ServicePlan = PricingColumnProps & { id: string };
+
+const servicePlans: ServicePlan[] = [
   {
-    Icon: CheckCircle,
-    name: "Validação Completa",
+    id: "landing",
+    name: "Landing Page",
     description:
-      "Valide CPF, CNPJ, CEP, CNH, telefone, e-mail, PIX, boletos e códigos de barras com precisão e um único clique.",
-    href: "#validacao",
-    cta: "Explorar",
-    className: "col-span-3 lg:col-span-2",
-    background: (
-      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-        <CarouselIllustration className="top-10! h-auto absolute! max-w-4xl" />
-        <div className="absolute inset-x-0 bottom-0 h-32 pointer-events-none bg-linear-to-t from-black/70 via-black/30 to-transparent" />
-      </div>
-    ),
+      "Uma página única, enxuta e desenhada para transformar tráfego em leads.",
+    price: 299,
+    priceNote: "Escopo fechado. Entrega em até 10 dias.",
+    cta: {
+      variant: "default",
+      label: "Quero uma landing que vende",
+      href: "https://wa.me/5544998306622",
+    },
+    variant: "default",
+    className: "h-full",
+    icon: <Rocket className="size-5 text-emerald-300" />,
+    features: [
+      "Estrutura completa (hero, benefícios, prova social, oferta, garantia, FAQ)",
+      "Layout responsivo em React/Next com boas práticas",
+      "Integração com formulários, CRM/e-mail marketing e pixels",
+      "SEO on-page básico + otimização de performance",
+      "1 rodada de ajustes em layout e conteúdo",
+      "Não inclui: copy do zero, gestão de campanhas ou manutenção contínua",
+    ],
   },
   {
-    Icon: Rocket,
-    name: "Altíssima Performance",
+    id: "website",
+    name: "Website Institucional",
     description:
-      "Desempenho otimizado para aplicações de alta demanda, garantindo respostas rápidas e eficientes.",
-    href: "#performance",
-    cta: "Descobrir",
-    className: "col-span-3 lg:col-span-1",
-    background: (
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
-        <div className="relative w-full max-w-lg">
-          <GlobeIllustration className="w-full h-auto transform-gpu scale-90" />
-
-          <div className="absolute inset-x-0 bottom-0 h-32 pointer-events-none bg-linear-to-t from-black/70 via-black/30 to-transparent" />
-        </div>
-      </div>
-    ),
+      "Um site completo, claro e profissional, para quem precisa ir além de uma página única.",
+    price: 599,
+    priceNote: "Sites de 3-6 páginas com 1-2 rodadas de ajustes.",
+    cta: {
+      variant: "glow",
+      label: "Quero um site profissional",
+      href: "https://wa.me/5544998306622",
+    },
+    variant: "glow-brand",
+    className: "h-full",
+    icon: <Building2 className="size-5 text-sky-300" />,
+    features: [
+      "Ideal para empresas e profissionais que precisam de 3-6 páginas bem organizadas",
+      "Home, Sobre, Serviços, Portfólio/Cases, Contato e opcional Blog",
+      "Site responsivo em stack moderna com performance",
+      "Formulários, WhatsApp, mapa e SEO on-page em todas as páginas",
+      "1-2 rodadas de ajustes combinadas",
+      "Add-ons: Blog com CMS, área administrativa e versão multi-idioma",
+    ],
   },
   {
-    Icon: Users,
-    name: "Open-Source",
+    id: "sob-demanda",
+    name: "Projetos Sob Demanda",
     description:
-      "Comunidade ativa, GitHub aberto e contribuições guiadas pela transparência e segurança.",
-    className: "col-span-3 lg:col-span-1",
-    background: (
-      <div className="absolute inset-0 z-0">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,23,42,0.65),transparent_80%)] blur-4xl" />
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-[40px] bg-linear-to-br from-emerald-400/50 via-emerald-400/10 to-transparent blur-3xl" />
-
-        <div className="flex h-full w-full items-center justify-center">
-          <CommitStack />
-          <div className="absolute inset-x-0 bottom-0 z-100 h-32 pointer-events-none bg-linear-to-t from-black via-black/60 to-transparent" />
-        </div>
-      </div>
-    ),
-  },
-  {
-    Icon: Package,
-    name: "Zero Dependências",
-    description:
-      "Pacote leve que roda sem nada além do Node.js, ideal para embarcar em qualquer projeto.",
-    href: "#zero-dependencias",
-    cta: "Ver detalhes",
-    className: "col-span-3 lg:col-span-2",
-    background: (
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="flex h-full w-full items-center justify-center">
-          <NetworkIllustration icon={Package} />
-          <div className="absolute z-10 inset-x-0 bottom-0 h-32 pointer-events-none bg-linear-to-t from-black via-black/50 to-transparent" />
-        </div>
-      </div>
-    ),
+      "Aplicações web, backoffices, sistemas fullstack e agentes de IA sob medida.",
+    price: "consulta",
+    priceNote:
+      "Projetos sob medida por escopo ou pacotes de horas, com entregas por fase.",
+    cta: {
+      variant: "default",
+      label: "Quero discutir um projeto sob demanda",
+      href: "https://wa.me/5544998306622",
+    },
+    variant: "glow",
+    className: "h-full",
+    icon: <Wrench className="size-5 text-amber-300" />,
+    features: [
+      "Levantamento de requisitos e desenho de arquitetura",
+      "Módulos de IA e automações quando necessário",
+      "Integrações com serviços e plataformas externas",
+      "Documentação básica e deploy",
+      "Forma de trabalho: escopo fechado, pacotes de horas e prazos claros",
+    ],
   },
 ];
 
 export function Features() {
   return (
-    <section id="features" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col gap-10">
-        <div className="text-center">
-          <h2 className="text-4xl font-bold leading-tight text-white md:text-5xl">
-            Funcionalidades
-          </h2>
-          <p className="mt-3 text-lg text-muted-foreground">
-            Tudo que você precisa para trabalhar com documentos brasileiros com
-            segurança e performance.
-          </p>
-        </div>
-
-        <BentoGrid className="gap-6">
-          {features.map((feature) => (
-            <BentoCard key={feature.name} {...feature} />
-          ))}
-        </BentoGrid>
+    <section
+      id="servicos"
+      className="relative border-y overflow-hidden py-16 p-8 sm:py-20"
+    >
+      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-3 px-4 text-center">
+        <h2 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl">
+          O que a Shift Studio constrói para você
+        </h2>
+        <p className="max-w-3xl text-base text-muted-foreground">
+          Pacotes claros, com entregas objetivas e integrações prontas para
+          crescer com o seu negócio.
+        </p>
+      </div>
+      <div className="grid mt-10 gap-6 lg:grid-cols-3">
+        {servicePlans.map(({ id, ...plan }) => (
+          <PricingColumn key={id} {...plan} />
+        ))}
       </div>
     </section>
   );

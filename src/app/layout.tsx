@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { AppProviders } from "@/providers/app-providers";
-import { brandColors, mapColorsToCSSVariables } from "@/styles/colors";
 import { metadataConfig } from "@/config/site";
 
 import "./globals.css";
@@ -33,9 +32,8 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="light">
+    <html lang="pt-BR" className="dark">
       <body
-        style={mapColorsToCSSVariables(brandColors)}
         className={`${geistSans.variable} ${geistMono.variable} bg-[var(--background)] text-[var(--foreground)] antialiased`}
       >
         <AppProviders>{children}</AppProviders>

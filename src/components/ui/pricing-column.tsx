@@ -16,13 +16,13 @@ const pricingColumnVariants = cva(
         default: "glass-1 to-transparent dark:glass-3",
         glow: "glass-2 to-trasparent dark:glass-3 after:content-[''] after:absolute after:-top-[128px] after:left-1/2 after:h-[128px] after:w-[100%] after:max-w-[960px] after:-translate-x-1/2 after:rounded-[50%] dark:after:bg-foreground/30 after:blur-[72px]",
         "glow-brand":
-          "glass-3 from-card/100 to-card/100 dark:glass-4 after:content-[''] after:absolute after:-top-[128px] after:left-1/2 after:h-[128px] after:w-[100%] after:max-w-[960px] after:-translate-x-1/2 after:rounded-[50%] after:bg-brand-foreground/70 after:blur-[72px]",
+          "glass-3 from-card/100 to-card/100 dark:glass-4 after:content-[''] after:absolute after:-top-[128px] after:left-1/2 after:h-[128px] after:w-[100%] after:max-w-[960px] after:-translate-x-1/2 after:rounded-[50%] after:bg-primary/70 after:blur-[72px]",
       },
     },
     defaultVariants: {
       variant: "default",
     },
-  },
+  }
 );
 
 export interface PricingColumnProps
@@ -31,7 +31,7 @@ export interface PricingColumnProps
   name: string;
   icon?: ReactNode;
   description: string;
-  price: number;
+  price: number | string;
   showDiscounts?: boolean;
   originalPrice?: number;
   discountCode?: string;
@@ -71,8 +71,8 @@ export function PricingColumn({
     >
       <hr
         className={cn(
-          "via-foreground/60 absolute top-0 left-[10%] h-[1px] w-[80%] border-0 bg-linear-to-r from-transparent to-transparent",
-          variant === "glow-brand" && "via-brand",
+          "via-foreground/60 absolute top-0 left-[10%] h-px w-[80%] border-0 bg-linear-to-r from-transparent to-transparent",
+          variant === "glow-brand" && "via-brand"
         )}
       />
       <div className="flex flex-col gap-7">
@@ -103,17 +103,17 @@ export function PricingColumn({
             <div className="flex flex-col gap-1">
               <div className="flex items-baseline gap-1">
                 <span className="text-muted-foreground text-2xl font-bold">
-                  $
+                  r$
                 </span>
                 <span className="text-6xl font-bold">{price}</span>
               </div>
             </div>
-            <div className="flex min-h-[40px] flex-col">
+            <div className="flex min-h-10 flex-col">
               {price > 0 && (
                 <>
-                  <span className="text-sm">one-time payment</span>
+                  <span className="text-sm">pagamento único</span>
                   <span className="text-muted-foreground text-sm">
-                    plus local taxes
+                    parcelamento disp.
                   </span>
                 </>
               )}
@@ -124,16 +124,18 @@ export function PricingColumn({
               {discountCode && (
                 <p className="text-brand-foreground text-sm font-medium">
                   {discountPercentage}% off with code{" "}
-                  <Badge variant="brand-secondary">{discountCode}</Badge>
+                  <Badge variant="secondary">{discountCode}</Badge>
                 </p>
               )}
             </div>
           )}
         </section>
         <Button variant={cta.variant} size="lg" asChild>
-          <Link href={cta.href}>{cta.label}</Link>
+          <a target="_blank" rel="noopener noreferrer" href={cta.href}>
+            {cta.label}
+          </a>
         </Button>
-        <p className="text-muted-foreground min-h-[40px] max-w-[220px] text-sm">
+        <p className="text-muted-foreground min-h-10 max-w-[220px] text-sm">
           {priceNote}
         </p>
         <hr className="border-input" />

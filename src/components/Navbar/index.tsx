@@ -12,13 +12,7 @@ import {
   NavItems,
 } from "../ui/ResibleNavbar";
 import Icon from "../Icon";
-
-const navItems = [
-  { name: "Funcionalidades", link: "features" },
-  { name: "Diferencial", link: "whyuse" },
-  { name: "Instale", link: "install" },
-  { name: "Depoimentos", link: "testimonials" },
-];
+import { navItems } from "@/data/navigation";
 
 const NavbarFeat = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -44,14 +38,10 @@ const NavbarFeat = () => {
         <NavbarLogo />
         <NavItems items={navItems} />
         <div className="flex items-center gap-4">
-          <NavbarButton
-            href="https://github.com/terukimateus/br-docs"
-            target="_blank"
-            variant="primary"
-          >
+          <NavbarButton href="#contato" variant="primary">
             <div className="flex items-center gap-1">
-              <Icon family="Lucide" name="LuGithub" size={18} />
-              br-docs
+              <Icon family="Lucide" name="LuCalendarCheck2" size={18} />
+              Agendar call
             </div>
           </NavbarButton>
         </div>
@@ -84,14 +74,13 @@ const NavbarFeat = () => {
           ))}
           <div className="flex w-full flex-col gap-4">
             <NavbarButton
-              href="https://github.com/terukimateus/br-docs"
+              href="#contato"
               onClick={() => setIsMobileMenuOpen(false)}
-              target="_blank"
               variant="primary"
             >
               <div className="flex items-center gap-1">
-                <Icon family="Lucide" name="LuGithub" size={18} />
-                br-docs
+                <Icon family="Lucide" name="LuCalendarCheck2" size={18} />
+                Agendar call
               </div>
             </NavbarButton>
           </div>
