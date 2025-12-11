@@ -44,7 +44,7 @@ export function FAQ() {
       description="Escopo claro, extras opcionais e combinação transparente de prazos, custos e responsabilidades."
       className="px-12 pb-16 border-b"
     >
-      <Glow variant="bottom" className="z-10 -translate-y-full" />
+      <Glow variant="bottom" className="-z-10 -translate-y-full" />
       <Accordion type="single" collapsible className="border p-2 ">
         {faqs.map((faq) => (
           <AccordionItem value={faq.id} key={faq.id}>
