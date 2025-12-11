@@ -14,7 +14,7 @@ const servicePlans: ServicePlan[] = [
     name: "Landing Page",
     description:
       "Uma página única, enxuta e desenhada para transformar tráfego em leads.",
-    price: 299,
+    price: 349,
     priceNote: "Escopo fechado. Entrega em até 10 dias.",
     cta: {
       variant: "default",
@@ -38,10 +38,10 @@ const servicePlans: ServicePlan[] = [
     name: "Website Institucional",
     description:
       "Um site completo, claro e profissional, para quem precisa ir além de uma página única.",
-    price: 599,
+    price: 699,
     priceNote: "Sites de 3-6 páginas com 1-2 rodadas de ajustes.",
     cta: {
-      variant: "glow",
+      variant: "default",
       label: "Quero um site profissional",
       href: "https://wa.me/5544998306622",
     },
@@ -87,7 +87,7 @@ export function Features() {
   return (
     <section
       id="servicos"
-      className="relative border-y overflow-hidden py-16 p-8 sm:py-20"
+      className="relative border-t overflow-hidden py-16 p-8 sm:py-20"
     >
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-3 px-4 text-center">
         <h2 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl">

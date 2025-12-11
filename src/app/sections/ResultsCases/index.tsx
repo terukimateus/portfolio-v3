@@ -1,13 +1,12 @@
 "use client";
 
-import { motion } from "motion/react";
-
 import { Safari } from "@/components/SafariMockup/safari";
 import { cn } from "@/lib/utils";
 import { Iphone } from "@/components/IPhoneMockup";
 import Ripple from "@/components/RippleBackground";
 import Glow from "@/components/ui/glow";
 import { Button } from "@/components/ui/button";
+import { ScrollRevealSection } from "@/components/ScrollRevealSection";
 
 type CaseStudy = {
   id: string;
@@ -29,7 +28,7 @@ const CASE_STUDIES: CaseStudy[] = [
     type: "Landing Page",
     result: "Página mais clara e tempo de carregamento 60% menor.",
     mockup: "safari",
-    image: "/hero.png",
+    image: "/hero.webp",
     url: "https://brdocs.terukimateus.dev/",
   },
   {
@@ -42,7 +41,7 @@ const CASE_STUDIES: CaseStudy[] = [
       "Aumento de 45% na conversão de visitantes em clientes através do novo site.",
     mockup: "mobile",
     url: "http://aferreirasexologia.com.br/",
-    image: "./alessandra-lp.png",
+    image: "./alessandra-lp.webp",
   },
 ];
 
@@ -52,22 +51,14 @@ export function ResultsCases() {
       className="relative border-t overflow-hidden pt-16 sm:pt-20"
       id="cases"
     >
-      <Ripple className="-z-10" />
+      <Ripple className=" bottom-[250px]! md:bottom-80" />
 
       <div className="space-y-12">
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-6 text-center"
-        >
-          <div className="space-y-4">
-            <h2 className="text-4xl font-semibold leading-tight text-white md:text-5xl">
-              Resultados que falam mais alto
-            </h2>
-          </div>
-        </motion.div>
+        <ScrollRevealSection className="space-y-4 text-center">
+          <h2 className="text-4xl font-semibold leading-tight text-white md:text-5xl">
+            Resultados que falam mais alto
+          </h2>
+        </ScrollRevealSection>
         <div className="pointer-events-none absolute inset-0 -z-10 opacity-50"></div>
 
         <div className="grid border-t lg:grid-cols-2">
@@ -80,8 +71,8 @@ export function ResultsCases() {
                 className={cn(
                   "flex flex-col h-96 relative overflow-hidden gap-6 bg-background/90 pt-6 px-6 backdrop-blur",
                   {
-                    "border-l": caseStudy.borderLeft,
-                    "flex-row items-center gap-10": isMobileCase,
+                    "md:border-l": caseStudy.borderLeft,
+                    "flex-row items-center gap-10 border-t": isMobileCase,
                   }
                 )}
               >
@@ -119,29 +110,27 @@ export function ResultsCases() {
                     </div>
                   </header>
 
-                  <p className="text-base text-muted-foreground">
-                    {isMobileCase ? (
-                      <>
-                        {caseStudy.result}
-                        <Button
-                          variant="default"
-                          size="sm"
-                          asChild
-                          className="border mt-3 border-border/50"
+                  {isMobileCase ? (
+                    <>
+                      {caseStudy.result}
+                      <Button
+                        variant="default"
+                        size="sm"
+                        asChild
+                        className="border mt-3 border-border/50"
+                      >
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={caseStudy.url ?? "#"}
                         >
-                          <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={caseStudy.url ?? "#"}
-                          >
-                            Ver projeto
-                          </a>
-                        </Button>
-                      </>
-                    ) : (
-                      caseStudy.result
-                    )}
-                  </p>
+                          Ver projeto
+                        </a>
+                      </Button>
+                    </>
+                  ) : (
+                    caseStudy.result
+                  )}
                 </div>
 
                 <div

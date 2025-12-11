@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
 import type { LucideIcon } from "lucide-react";
 import {
   ClipboardCheck,
@@ -10,6 +9,7 @@ import {
   Rocket,
 } from "lucide-react";
 import DottedGlowBackground from "@/components/DottedGlowBackground";
+import { ScrollRevealSection } from "@/components/ScrollRevealSection";
 
 interface Step {
   title: string;
@@ -55,34 +55,17 @@ export function ShiftProcess() {
     <section className="relative border-t overflow-hidden py-16 sm:py-20">
       <DottedGlowBackground className="-z-10" />
       <div className="flex flex-col gap-12">
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-6 text-center"
-        >
-          <div className="space-y-4">
-            <h2 className="text-4xl font-semibold leading-tight text-white md:text-5xl">
-              Do escopo à entrega: um fluxo simples e transparente.
-            </h2>
-          </div>
-        </motion.div>
+        <ScrollRevealSection className="space-y-4 text-center">
+          <h2 className="text-4xl font-semibold leading-tight text-white md:text-5xl">
+            Do escopo à entrega: um fluxo simples e transparente.
+          </h2>
+        </ScrollRevealSection>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="relative w-full overflow-hidden bg-linear-to-b from-slate-900/80 via-slate-950 to-slate-950 shadow-[0_20px_60px_rgba(2,6,23,0.65)]"
-        >
+        <ScrollRevealSection className="relative w-full overflow-hidden bg-linear-to-b from-slate-900/80 via-slate-950 to-slate-950 shadow-[0_20px_60px_rgba(2,6,23,0.65)]">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.08),transparent_55%)]" />
-          <motion.svg
+          <svg
             viewBox="0 0 260 520"
             className="pointer-events-none absolute -right-8 top-6 hidden h-[calc(100%-3rem)] w-48 opacity-60 lg:block"
-            initial={{ opacity: 0, pathLength: 0 }}
-            animate={{ opacity: 0.75, pathLength: 1 }}
-            transition={{ duration: 1.6, ease: "easeInOut" }}
           >
             <defs>
               <linearGradient
@@ -97,30 +80,20 @@ export function ShiftProcess() {
                 <stop offset="100%" stopColor="rgba(16,185,129,0.05)" />
               </linearGradient>
             </defs>
-            <motion.path
+            <path
               d="M30 20 C 120 80, 40 160, 140 220 S 60 360, 160 430"
               stroke="url(#timelineStroke)"
               strokeWidth="2"
               fill="transparent"
               strokeLinecap="round"
             />
-          </motion.svg>
+          </svg>
 
           <div className="relative">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="grid grid-cols-1 gap-0 overflow-hidden bg-white/5 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-5 sm:divide-x sm:divide-y-0 divide-y divide-white/10"
-            >
+            <div className="grid grid-cols-1 gap-0 overflow-hidden bg-white/5 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-5 sm:divide-x sm:divide-y-0 divide-y divide-white/10">
               {steps.map((step, index) => (
-                <motion.article
+                <article
                   key={step.title}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
                   className="flex flex-col border bg-linear-to-b from-slate-950/40 to-slate-950/20 p-5 text-left sm:p-6"
                 >
                   <div className="mb-4 flex items-center gap-3">
@@ -137,11 +110,11 @@ export function ShiftProcess() {
                   <p className="mt-2 text-base text-muted-foreground">
                     {step.description}
                   </p>
-                </motion.article>
+                </article>
               ))}
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </ScrollRevealSection>
       </div>
     </section>
   );

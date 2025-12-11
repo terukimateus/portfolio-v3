@@ -71,7 +71,11 @@ export function Hero() {
           <div className="relative left-30 -bottom-10 lg:-bottom-20 lg:left-60">
             <div className="absolute inset-0 blur-3xl bg-primary/20 rounded-full hidden md:block" />
             <div className="lg:scale-[1.8] scale-[1.4] md:scale-[1.1] relative rounded-3xl border border-border/60 bg-background/70 p-4 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
-              <Safari imageSrc="./hero.png" url="brdocs.dev" />
+              <Safari
+                imageSrc="./hero.webp"
+                url="brdocs.dev"
+                fetchPriority="high"
+              />
             </div>
           </div>
         </div>

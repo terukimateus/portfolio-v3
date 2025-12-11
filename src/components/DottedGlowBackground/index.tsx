@@ -2,6 +2,10 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
+import { cn } from "@/lib/utils";
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
+
 type DottedGlowBackgroundProps = {
   className?: string;
   /** distance between dot centers in pixels */
@@ -64,6 +68,9 @@ const DottedGlowBackground = ({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [resolvedColor, setResolvedColor] = useState<string>(color);
   const [resolvedGlowColor, setResolvedGlowColor] = useState<string>(glowColor);
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const isMobile = useIsMobile();
+  const shouldPause = prefersReducedMotion || isMobile;
 
   // Resolve CSS variable value from the container or root
   const resolveCssVariable = (
@@ -149,6 +156,10 @@ const DottedGlowBackground = ({
   ]);
 
   useEffect(() => {
+    if (shouldPause) {
+      return;
+    }
+
     const el = canvasRef.current;
     const container = containerRef.current;
     if (!el || !container) return;
@@ -280,6 +291,7 @@ const DottedGlowBackground = ({
       ro.disconnect();
     };
   }, [
+    shouldPause,
     gap,
     radius,
     resolvedColor,
@@ -291,16 +303,28 @@ const DottedGlowBackground = ({
     speedScale,
   ]);
 
+  const fallbackBackground = shouldPause ? (
+    <div
+      className="h-full w-full"
+      style={{
+        backgroundImage: `radial-gradient(circle at center, ${resolvedGlowColor} 0, transparent 55%)`,
+        opacity: opacity * 0.8,
+      }}
+    />
+  ) : (
+    <canvas
+      ref={canvasRef}
+      style={{ display: "block", width: "100%", height: "100%" }}
+    />
+  );
+
   return (
     <div
       ref={containerRef}
-      className={className}
+      className={cn("pointer-events-none", className)}
       style={{ position: "absolute", inset: 0 }}
     >
-      <canvas
-        ref={canvasRef}
-        style={{ display: "block", width: "100%", height: "100%" }}
-      />
+      {fallbackBackground}
     </div>
   );
 };

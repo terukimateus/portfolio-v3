@@ -1,21 +1,18 @@
 const useScreen = () => {
   const handleScroll = (): string | null => {
-    const sections = document.querySelectorAll("section");
-    const scrollPosition = window.scrollY + 200;
+    const sections = document.querySelectorAll<HTMLElement>("section[id]");
+    const viewportCenter = window.scrollY + window.innerHeight / 2;
 
-    return Array.from(sections).reduce<string | null>(
-      (activeSection, section) => {
-        const offsetTop = section.offsetTop;
-        const offsetBottom = offsetTop + section.offsetHeight;
+    for (const section of Array.from(sections)) {
+      const offsetTop = section.offsetTop;
+      const offsetBottom = offsetTop + section.offsetHeight;
 
-        if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-          return section.id;
-        }
+      if (viewportCenter >= offsetTop && viewportCenter < offsetBottom) {
+        return section.id || null;
+      }
+    }
 
-        return activeSection;
-      },
-      null
-    );
+    return null;
   };
 
   return {

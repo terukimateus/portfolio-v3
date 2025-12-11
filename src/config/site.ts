@@ -76,36 +76,29 @@ export const metadataConfig: Metadata = {
         type: "image/png",
       },
     ],
-    apple: "/apple-icon.png",
+    apple: "/icon.png",
   },
   creator: brandContent.name,
   // Extended SEO fields
-  metadataBase: new URL("https://shift.studio.br"),
+  metadataBase: new URL("https://shiftstudio.tech"),
   alternates: {
-    canonical: "https://shift.studio.br/",
+    canonical: "https://shiftstudio.tech/",
   },
   openGraph: {
     type: "website",
-    url: "https://shift.studio.br/",
+    url: "https://shiftstudio.tech/",
     title: `${brandContent.name} · ${brandContent.tagline}`,
     description: "Landing pages e sites com foco em conversão e performance.",
     siteName: brandContent.name,
     locale: "pt_BR",
     images: [
       {
-        url: "/og.png",
+        url: "/seo.webp",
         width: 1200,
         height: 630,
         alt: `${brandContent.name} · ${brandContent.tagline}`,
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${brandContent.name} · ${brandContent.tagline}`,
-    description: "Landing pages e sites com foco em conversão e performance.",
-    images: ["/og.png"],
-    creator: "@shiftstudio",
   },
   robots: {
     index: true,

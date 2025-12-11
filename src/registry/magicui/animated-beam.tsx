@@ -9,12 +9,12 @@ import {
   Globe,
   MegaphoneOff,
   MousePointerClick,
-  Shield,
   ShieldCheck,
   Sparkles,
-  Wrench,
 } from "lucide-react";
 import Image from "next/image";
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Circle = forwardRef<
   HTMLDivElement,
@@ -35,7 +35,34 @@ const Circle = forwardRef<
 
 Circle.displayName = "Circle";
 
+const fallbackItems = [
+  {
+    label: "Clareza",
+    Icon: Sparkles,
+    description: "Mensagem direta e objetiva.",
+  },
+  {
+    label: "Confiança",
+    Icon: ShieldCheck,
+    description: "Design que reduz atrito.",
+  },
+  {
+    label: "Conversão",
+    Icon: MousePointerClick,
+    description: "Fluxos guiados ao CTA.",
+  },
+  {
+    label: "Escala",
+    Icon: Gauge,
+    description: "Stack moderna pronta para crescer.",
+  },
+];
+
 export function AnimatedBeamDemo() {
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const isMobile = useIsMobile();
+  const disableAnimation = false;
+
   const containerRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement>(null);
   const div2Ref = useRef<HTMLDivElement>(null);
@@ -44,6 +71,26 @@ export function AnimatedBeamDemo() {
   const div5Ref = useRef<HTMLDivElement>(null);
   const div6Ref = useRef<HTMLDivElement>(null);
   const div7Ref = useRef<HTMLDivElement>(null);
+
+  if (disableAnimation) {
+    return (
+      <div className="grid w-full gap-4 rounded-3xl border border-border/40 bg-background/60 p-6 text-left md:max-w-2xl">
+        {fallbackItems.map(({ label, description, Icon }) => (
+          <div key={label} className="flex items-center gap-4">
+            <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+              <Icon className="size-5" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                {label}
+              </p>
+              <p className="text-base text-foreground/80">{description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div

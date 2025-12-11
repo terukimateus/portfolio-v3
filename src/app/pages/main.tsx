@@ -11,7 +11,10 @@ import { FAQ } from "../sections/FAQ";
 
 export function MainPage() {
   return (
-    <div id="top" className="max-w-7xl mx-auto border-x relative bg-background">
+    <div
+      id="top"
+      className="max-w-7xl mx-auto md:border-x relative bg-background"
+    >
       <NavbarFeat />
       <main>
         <Hero />
