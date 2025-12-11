@@ -19,7 +19,7 @@ const Circle = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
     <div
       ref={ref}
       className={cn(
-        "flex h-16 w-16 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white shadow-[0_20px_60px_rgba(37,99,235,0.25)] backdrop-blur",
+        "flex h-16 w-16 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white md:shadow-[0_20px_60px_rgba(37,99,235,0.25)] backdrop-blur",
         className
       )}
       {...props}

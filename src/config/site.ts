@@ -53,7 +53,8 @@ export const brandContent: BrandContent = {
 
 export const metadataConfig: Metadata = {
   title: `${brandContent.name} · ${brandContent.tagline}`,
-  description: "",
+  description:
+    "Landing pages, sites e produtos digitais focados em clareza, velocidade e conversão. Presença digital enxuta que gera demanda e resultados.",
   keywords: [
     "landing pages",
     "design de landing pages",
@@ -68,7 +69,6 @@ export const metadataConfig: Metadata = {
     "aquisição de clientes",
   ],
   authors: [{ name: "Shift Team" }],
-  robots: "index, follow",
   icons: {
     icon: [
       {
@@ -79,6 +79,63 @@ export const metadataConfig: Metadata = {
     apple: "/apple-icon.png",
   },
   creator: brandContent.name,
+  // Extended SEO fields
+  metadataBase: new URL("https://shift.studio.br"),
+  alternates: {
+    canonical: "https://shift.studio.br/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://shift.studio.br/",
+    title: `${brandContent.name} · ${brandContent.tagline}`,
+    description: "Landing pages e sites com foco em conversão e performance.",
+    siteName: brandContent.name,
+    locale: "pt_BR",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${brandContent.name} · ${brandContent.tagline}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${brandContent.name} · ${brandContent.tagline}`,
+    description: "Landing pages e sites com foco em conversão e performance.",
+    images: ["/og.png"],
+    creator: "@shiftstudio",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  verification: {
+    google: undefined,
+    yandex: undefined,
+    yahoo: undefined,
+    me: undefined,
+    other: {
+      bing: [""],
+    },
+  },
+  category: "business",
+  applicationName: brandContent.name,
+  publisher: brandContent.name,
+  appleWebApp: {
+    title: brandContent.name,
+    statusBarStyle: "black-translucent",
+    capable: true,
+  },
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#060a1f" },
+  ],
 };
 
 export type BrandingPayload = {

@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import type { MotionValue } from "framer-motion";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import type { ReactNode } from "react";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 type ScrollRevealProps = {
   children: ReactNode;
@@ -29,6 +29,15 @@ export function ScrollRevealSection({
   yOffset = 40,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLElement | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 0.85", "end 0.6"],
@@ -40,18 +49,19 @@ export function ScrollRevealSection({
     [0, 1, 1]
   );
 
+  // Use simpler spring settings for mobile
   const opacity = useSpring(clampedProgress, {
-    stiffness: 120,
-    damping: 20,
-    mass: 0.8,
+    stiffness: isMobile ? 200 : 120,
+    damping: isMobile ? 30 : 20,
+    mass: isMobile ? 1 : 0.8,
   });
 
   const translateY = useSpring(
     useTransform(clampedProgress, [0, 1], [yOffset, 0]),
     {
-      stiffness: 120,
-      damping: 20,
-      mass: 0.7,
+      stiffness: isMobile ? 200 : 120,
+      damping: isMobile ? 30 : 20,
+      mass: isMobile ? 1 : 0.7,
     }
   );
 

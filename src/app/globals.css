@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @layer components {
-  @import url("https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&display=swap");
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -377,6 +376,29 @@
     .animate-install-glow,
     .animate-marquee {
       animation: none;
+    }
+  }
+
+  /* Mobile optimization - reduce animations */
+  @media (max-width: 768px) {
+    .animate-install-rise {
+      animation: none !important;
+    }
+
+    .animate-install-glow {
+      animation: none !important;
+    }
+
+    .animate-orbit {
+      animation: none !important;
+    }
+
+    .animate-spin-around {
+      animation: none !important;
+    }
+
+    .animate-shimmer-slide {
+      animation: none !important;
     }
   }
 }

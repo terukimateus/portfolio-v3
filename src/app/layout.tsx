@@ -25,6 +25,15 @@ export const metadata: Metadata = {
   creator: metadataConfig.creator,
   robots: metadataConfig.robots,
   icons: metadataConfig.icons,
+  metadataBase: metadataConfig.metadataBase,
+  alternates: metadataConfig.alternates,
+  openGraph: metadataConfig.openGraph,
+  twitter: metadataConfig.twitter,
+  verification: metadataConfig.verification,
+  appleWebApp: metadataConfig.appleWebApp,
+  themeColor: metadataConfig.themeColor,
+  applicationName: metadataConfig.applicationName,
+  publisher: metadataConfig.publisher,
 };
 
 export default function RootLayout({
@@ -34,6 +43,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="dark">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}
       >

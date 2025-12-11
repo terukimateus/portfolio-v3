@@ -33,8 +33,8 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex justify-center items-center overflow-hidden pt-28 pb-16">
       <div className="absolute inset-0 grid-line" />
-      <div className="absolute -top-16 -right-24 h-80 w-80 rounded-full bg-primary/25 blur-3xl" />
-      <div className="absolute -bottom-12 -left-16 h-72 w-72 rounded-full bg-accent/25 blur-3xl" />
+      <div className="absolute -top-16 -right-24 h-80 w-80 rounded-full bg-primary/25 blur-3xl hidden md:block" />
+      <div className="absolute -bottom-12 -left-16 h-72 w-72 rounded-full bg-accent/25 blur-3xl hidden md:block" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -69,7 +69,7 @@ export function Hero() {
           </div>
 
           <div className="relative left-30 -bottom-10 lg:-bottom-20 lg:left-60">
-            <div className="absolute inset-0 blur-3xl bg-primary/20 rounded-full" />
+            <div className="absolute inset-0 blur-3xl bg-primary/20 rounded-full hidden md:block" />
             <div className="lg:scale-[1.8] scale-[1.4] md:scale-[1.1] relative rounded-3xl border border-border/60 bg-background/70 p-4 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
               <Safari imageSrc="./hero.png" url="brdocs.dev" />
             </div>
