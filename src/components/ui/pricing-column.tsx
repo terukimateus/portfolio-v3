@@ -36,6 +36,8 @@ export interface PricingColumnProps
   originalPrice?: number;
   discountCode?: string;
   priceNote: string;
+  billingLabel?: string;
+  billingSubLabel?: string;
   cta: {
     variant: "glow" | "default";
     label: string;
@@ -53,6 +55,8 @@ export function PricingColumn({
   originalPrice,
   discountCode,
   priceNote,
+  billingLabel,
+  billingSubLabel,
   cta,
   features,
   variant,
@@ -111,10 +115,14 @@ export function PricingColumn({
             <div className="flex min-h-10 flex-col">
               {Number(price) > 0 && (
                 <>
-                  <span className="text-sm">pagamento único</span>
-                  <span className="text-muted-foreground text-sm">
-                    parcelamento disp.
+                  <span className="text-sm">
+                    {billingLabel ?? "pagamento mensal"}
                   </span>
+                  {billingSubLabel && (
+                    <span className="text-muted-foreground text-sm">
+                      {billingSubLabel}
+                    </span>
+                  )}
                 </>
               )}
             </div>

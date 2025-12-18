@@ -113,7 +113,7 @@ export function AnimatedBeamDemo() {
           <Circle ref={div4Ref} className="size-16">
             <Image
               src="/icon.png"
-              alt="Shift Studio"
+              alt="Matchly"
               width={80}
               height={80}
               className="h-16 w-16 object-contain filter brightness-0"

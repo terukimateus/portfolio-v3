@@ -63,7 +63,7 @@ export default function Marquee({
               "animate-marquee flex-row": !vertical,
               "animate-marquee-vertical flex-col": vertical,
               "group-hover:[animation-play-state:paused]": pauseOnHover,
-              "[animation-direction:reverse]": reverse,
+              "[direction:reverse]": reverse,
             })}
           >
             {children}

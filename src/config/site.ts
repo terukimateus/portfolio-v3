@@ -47,8 +47,8 @@ export type BrandContent = {
 };
 
 export const brandContent: BrandContent = {
-  name: "Shift Studio",
-  tagline: "Landing pages que convertem",
+  name: "Matchly.ai",
+  tagline: "Currículos otimizados com AI para vagas específicas.",
 };
 
 export const metadataConfig: Metadata = {
@@ -126,8 +126,8 @@ export const metadataConfig: Metadata = {
     capable: true,
   },
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#060a1f" },
+    { media: "(prefers-color-scheme: light)", color: "#f7fbff" },
+    { media: "(prefers-color-scheme: dark)", color: "#07121f" },
   ],
 };
 

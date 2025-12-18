@@ -42,7 +42,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark">
+    <html lang="pt-BR" className="light">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

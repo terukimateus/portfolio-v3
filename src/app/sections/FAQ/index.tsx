@@ -1,62 +1,80 @@
-import GridBackground from "@/components/GridBackground";
-import { SectionContainer } from "@/components/SectionContainer";
+import DottedGlowBackground from "@/components/DottedGlowBackground";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Glow from "@/components/ui/glow";
 
 const faqs = [
   {
-    id: "prazo",
-    question: "Quanto tempo leva para entregar uma landing page?",
+    id: "ats",
+    question: "O que é ATS e por que importa?",
     answer:
-      "Projetos entram em produção logo após o kickoff e levam em média 7 a 10 dias corridos, incluindo QA e uma rodada de ajustes. Escopos extras ou integrações fora do padrão podem estender o prazo, mas sempre alinhamos isso antes de iniciar.",
+      "ATS é o sistema que filtra currículos antes de chegar a um humano. Usamos formato, seções e palavras-chave para que seu currículo seja lido sem perder contexto.",
   },
   {
-    id: "copy",
-    question: "Vocês também criam a copy do zero?",
+    id: "reescrita",
+    question: "Vocês reescrevem meu currículo ou só sugerem?",
     answer:
-      "Sim, oferecemos serviços de copywriting como um extra opcional. Nossa equipe pode desenvolver textos persuasivos e otimizados para conversão, alinhados com a proposta de valor e o público-alvo do seu negócio.",
+      "Reescrevemos resumo e bullets com base na vaga e mantemos sugestões editáveis. Você pode aceitar ou ajustar antes de exportar.",
   },
   {
-    id: "ads",
-    question: "A Shift faz gestão de anúncios?",
+    id: "dados",
+    question: "Meus dados ficam seguros?",
     answer:
-      "Não gerenciamos mídia paga do dia a dia. Nosso foco é entregar a infraestrutura (páginas, tracking e integrações) pronta para a equipe ou parceiro de tráfego escalar campanhas. Podemos indicar parceiros e configurar pixels, eventos e UTMs como extra.",
+      "Mantemos arquivos apenas para gerar versões e não vendemos dados. Você pode excluir os uploads a qualquer momento.",
   },
   {
-    id: "manutencao",
-    question: "Como funciona a manutenção após a entrega?",
+    id: "areas",
+    question: "Funciona para diferentes áreas?",
     answer:
-      "Toda entrega tem 30 dias de garantia para correções dentro do escopo contratado. Para melhorias contínuas, oferecemos pacotes mensais de manutenção e otimizações, automações e pequenos ajustes.",
+      "Sim. Adaptamos linguagem e evidências para tech, produto, dados, marketing e outras áreas com foco em resultados e métricas.",
+  },
+  {
+    id: "cancelamento",
+    question: "Posso cancelar quando quiser?",
+    answer:
+      "Sim. Planos são sem fidelidade. Cancele a qualquer momento e continue com os arquivos já exportados.",
   },
 ];
 
 export function FAQ() {
   return (
-    <SectionContainer
+    <section
       id="faq"
-      eyebrow="FAQ"
-      headline="Dúvidas frequentes"
-      description="Escopo claro, extras opcionais e combinação transparente de prazos, custos e responsabilidades."
-      className="px-12 pb-16 border-b"
+      className="relative overflow-hidden border-t py-16 sm:py-20"
     >
-      <Glow variant="bottom" className="-z-10 -translate-y-full" />
-      <Accordion type="single" collapsible className="border p-2 ">
-        {faqs.map((faq) => (
-          <AccordionItem value={faq.id} key={faq.id}>
-            <AccordionTrigger className="text-base font-semibold text-left text-foreground">
-              {faq.question}
-            </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground text-base">
-              {faq.answer}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </SectionContainer>
+      <DottedGlowBackground className="-z-5! opacity-15" />
+      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-3">
+          <h2 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl">
+            Perguntas que recebemos com frequência.
+          </h2>
+          <p className="text-base text-muted-foreground">
+            Respostas rápidas sobre ATS, reescrita, segurança e como cancelar.
+          </p>
+        </div>
+
+        <div className="mt-10 overflow-hidden rounded-2xl border border-border/60 bg-background">
+          <Accordion
+            type="single"
+            collapsible
+            className="divide-y divide-border/60"
+          >
+            {faqs.map((faq) => (
+              <AccordionItem value={faq.id} key={faq.id}>
+                <AccordionTrigger className="text-base font-semibold text-left text-foreground px-4 sm:px-6">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-base px-4 sm:px-6">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </div>
+    </section>
   );
 }

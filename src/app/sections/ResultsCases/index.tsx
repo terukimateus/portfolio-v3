@@ -49,7 +49,7 @@ export function ResultsCases() {
   return (
     <section
       className="relative border-t overflow-hidden pt-16 sm:pt-20"
-      id="cases"
+      id="vagas"
     >
       <Ripple className=" bottom-[250px]! md:bottom-80" />
 

@@ -86,7 +86,10 @@ export function LeanPresence() {
   ];
 
   return (
-    <section id="porque" className="relative border-y overflow-hidden py-20">
+    <section
+      id="beneficios"
+      className="relative border-y overflow-hidden py-20"
+    >
       <BackgroundBeams className="pointer-events-none z-10 opacity-80" />
       <div className="absolute z-20 fade-y w-full h-full inset-0" />
 

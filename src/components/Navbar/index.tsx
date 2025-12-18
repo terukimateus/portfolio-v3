@@ -38,10 +38,16 @@ const NavbarFeat = () => {
         <NavbarLogo />
         <NavItems items={navItems} />
         <div className="flex items-center gap-4">
-          <NavbarButton href="#contato" variant="primary">
+          <NavbarButton href="#analisar" variant="primary">
             <div className="flex items-center gap-1">
-              <Icon family="Lucide" name="LuCalendarCheck2" size={18} />
-              Agendar call
+              <Icon family="Lucide" name="LuSparkles" size={18} />
+              Analisar currículo grátis
+            </div>
+          </NavbarButton>
+          <NavbarButton href="#planos" variant="secondary">
+            <div className="flex items-center gap-1">
+              <Icon family="Lucide" name="LuCreditCard" size={18} />
+              Ver planos
             </div>
           </NavbarButton>
         </div>
@@ -67,6 +73,7 @@ const NavbarFeat = () => {
               onClick={(event) => {
                 onClick(event, item.link);
               }}
+              href={`#${item.link}`}
               className="relative text-neutral-600 dark:text-neutral-300"
             >
               <span className="block">{item.name}</span>
@@ -74,13 +81,23 @@ const NavbarFeat = () => {
           ))}
           <div className="flex w-full flex-col gap-4">
             <NavbarButton
-              href="#contato"
+              href="#analisar"
               onClick={() => setIsMobileMenuOpen(false)}
               variant="primary"
             >
               <div className="flex items-center gap-1">
-                <Icon family="Lucide" name="LuCalendarCheck2" size={18} />
-                Agendar call
+                <Icon family="Lucide" name="LuSparkles" size={18} />
+                Analisar currículo grátis
+              </div>
+            </NavbarButton>
+            <NavbarButton
+              href="#planos"
+              onClick={() => setIsMobileMenuOpen(false)}
+              variant="secondary"
+            >
+              <div className="flex items-center gap-1">
+                <Icon family="Lucide" name="LuCreditCard" size={18} />
+                Ver planos
               </div>
             </NavbarButton>
           </div>

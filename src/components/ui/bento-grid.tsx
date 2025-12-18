@@ -46,10 +46,8 @@ const BentoCard = ({
   <div
     key={name}
     className={cn(
-      "group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl",
-      // light styles
+      "group relative flex flex-col justify-between overflow-hidden rounded-xl",
       "bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
-      // dark styles
       "dark:bg-background transform-gpu dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] dark:[border:1px_solid_rgba(255,255,255,.1)]",
       className
     )}
@@ -62,21 +60,35 @@ const BentoCard = ({
 
     {/* bottom panel: gradient background + icon/title/description + CTA (static, no hover reveal) */}
     <div className="relative w-full p-4">
-      {/* gradient that fades from black at bottom to transparent upwards */}
-      <div className="absolute inset-x-0 bottom-0 h-36 rounded-b-xl bg-linear-to-t from-black/60 to-transparent pointer-events-none" />
+      {/* gradient that brightens the bottom area for readability */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 rounded-b-xl bg-linear-to-t from-white via-white/70 to-transparent dark:from-slate-900/90 dark:via-slate-900/60" />
 
       <div className="relative z-20 flex w-full flex-col gap-2">
         <div className="flex items-center gap-3">
-          <Icon className="h-10 w-10 text-white" />
-          <h3 className="text-lg font-semibold text-white">{name}</h3>
+          <Icon className="h-10 w-10 text-primary" />
+          <h3 className="text-lg font-semibold text-foreground">{name}</h3>
         </div>
 
-        <p className="text-sm text-white/80 max-w-lg">{description}</p>
+        <p className="max-w-lg text-sm text-muted-foreground">{description}</p>
+
+        {cta && href ? (
+          <Button
+            asChild
+            size="sm"
+            variant="outline"
+            className="group inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-white/70 text-primary backdrop-blur hover:border-primary/40 hover:bg-primary/5"
+          >
+            <a href={href}>
+              <span>{cta}</span>
+              <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+            </a>
+          </Button>
+        ) : null}
       </div>
     </div>
 
-    {/* subtle overlay to replace previous hover-only shade (static, non-interactive) */}
-    <div className="pointer-events-none absolute inset-0 bg-black/3 dark:bg-neutral-800/10" />
+    {/* subtle overlay to soften imagery in light mode */}
+    <div className="pointer-events-none absolute inset-0 bg-white/30 dark:bg-neutral-800/10" />
   </div>
 );
 

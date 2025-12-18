@@ -2,12 +2,14 @@ import { Footer } from "@/components/Footer";
 import NavbarFeat from "@/components/Navbar";
 import { ScrollRevealSection } from "@/components/ScrollRevealSection";
 import { Hero } from "../sections/Hero/hero";
-import { Features } from "../sections/Features";
+import { Pricing } from "../sections/Pricing";
 import { StackMarquee } from "../sections/StackMarquee";
-import { LeanPresence } from "../sections/LeanPresence";
-import { ShiftProcess } from "../sections/ShiftProcess";
+import { Features } from "../sections/Features";
+import { HowItWorks } from "../sections/HowItWorks";
 import { ResultsCases } from "../sections/ResultsCases";
 import { FAQ } from "../sections/FAQ";
+import { SocialProof } from "../sections/SocialProof";
+import { FinalCTA } from "../sections/FinalCTA";
 
 export function MainPage() {
   return (
@@ -18,23 +20,29 @@ export function MainPage() {
       <NavbarFeat />
       <main>
         <Hero />
-        <ScrollRevealSection id="stack">
-          <StackMarquee />
-        </ScrollRevealSection>
-        <ScrollRevealSection>
-          <LeanPresence />
-        </ScrollRevealSection>
-        <ScrollRevealSection id="servicos">
+
+        <ScrollRevealSection id="beneficios">
           <Features />
         </ScrollRevealSection>
-        <ScrollRevealSection id="processo">
-          <ShiftProcess />
+
+        <ScrollRevealSection id="planos">
+          <Pricing />
         </ScrollRevealSection>
-        <ScrollRevealSection id="cases" threshold={0.45}>
-          <ResultsCases />
+        <div className="h-16 w-full border-t bg-stripes" />
+
+        <ScrollRevealSection id="como-funciona">
+          <HowItWorks />
+        </ScrollRevealSection>
+        <div className="h-16 w-full border-b bg-stripes" />
+
+        <ScrollRevealSection id="prova" threshold={0.45}>
+          <SocialProof />
         </ScrollRevealSection>
         <ScrollRevealSection id="faq" threshold={0.45}>
           <FAQ />
+        </ScrollRevealSection>
+        <ScrollRevealSection id="cta-final" threshold={0.4}>
+          <FinalCTA />
         </ScrollRevealSection>
       </main>
       <Footer />

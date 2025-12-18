@@ -69,7 +69,7 @@ export default function NetworkIllustration({
           className="glass-5 relative z-10 rounded-full p-3 shadow"
           style={{
             background:
-              "linear-gradient(140deg, color-mix(in oklch, var(--primary) 25%, white) 0%, color-mix(in oklch, var(--background) 90%, var(--primary) 15%) 100%)",
+              "linear-gradient(140deg, color-mix(in oklch, var(--primary) 25%, var(--primary)) 0%, color-mix(in oklch, var(--primary) 90%, var(--primary) 15%) 100%)",
             boxShadow:
               "0 12px 80px color-mix(in oklch, var(--primary) 45%, transparent)",
           }}
@@ -83,7 +83,7 @@ export default function NetworkIllustration({
                   "radial-gradient(closest-side, color-mix(in oklch, var(--primary) 55%, transparent) 0%, transparent 65%)",
               }}
             />
-            <Icon className="relative z-10 size-10 text-white drop-shadow-[0_0_14px_rgba(255,255,255,0.6)]" />
+            <Icon className="relative z-10 size-10 text-black drop-shadow-[0_0_14px_rgba(255,255,255,0.6)]" />
           </div>
         </div>
       </div>

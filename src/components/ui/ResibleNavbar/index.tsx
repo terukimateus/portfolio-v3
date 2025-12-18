@@ -7,8 +7,6 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "motion/react";
-import Image from "next/image";
-
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
 interface NavbarProps {
@@ -63,10 +61,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   });
 
   return (
-    <motion.div
-      ref={ref}
-      className={cn("fixed inset-x-0 top-5 z-50", className)}
-    >
+    <div ref={ref} className={cn(" inset-x-0 top-5 z-50", className)}>
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(
@@ -75,37 +70,20 @@ export const Navbar = ({ children, className }: NavbarProps) => {
             )
           : child
       )}
-    </motion.div>
+    </div>
   );
 };
 
 export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   return (
-    <motion.div
-      animate={{
-        backdropFilter: visible ? "blur(12px)" : "blur(0px)",
-        backgroundColor: visible
-          ? "rgba(2, 6, 23, 0.86)"
-          : "rgba(2, 6, 23, 0.7)",
-        borderColor: "rgba(229, 231, 235, 0.12)",
-        paddingTop: visible ? 10 : 12,
-        paddingBottom: visible ? 10 : 12,
-        width: visible ? "85%" : "100%",
-        y: visible ? 0 : 8,
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 200,
-        damping: 50,
-      }}
+    <div
       className={cn(
-        "relative z-50 mx-auto hidden w-full max-w-6xl flex-row items-center justify-between self-start rounded-2xl border bg-background/60 px-5 py-4 lg:flex",
-        "shadow-[0_12px_50px_rgba(0,0,0,0.25)]",
+        " z-50 mx-auto hidden w-full flex-row items-center justify-between self-start border-b bg-background/60 px-5 py-4 lg:flex",
         className
       )}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
 
@@ -143,7 +121,7 @@ export const NavItems = ({ items, className }: NavItemsProps) => {
   return (
     <motion.div
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-1 text-sm font-medium text-muted-foreground transition duration-200 lg:flex lg:space-x-1",
+        " inset-0 hidden flex-1 flex-row items-center justify-center space-x-1 text-sm font-medium text-muted-foreground transition duration-200 lg:flex lg:space-x-1",
         className
       )}
     >
@@ -174,22 +152,8 @@ export const NavItems = ({ items, className }: NavItemsProps) => {
 export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
     <motion.div
-      animate={{
-        backdropFilter: visible ? "blur(12px)" : "blur(0px)",
-        backgroundColor: visible
-          ? "rgba(2, 6, 23, 0.9)"
-          : "rgba(2, 6, 23, 0.75)",
-        borderRadius: visible ? "12px" : "16px",
-        y: visible ? 0 : 8,
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 200,
-        damping: 50,
-      }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-1.5rem)] flex-col items-center justify-between border border-border/60 bg-background/80 px-3 py-3 lg:hidden",
-        "shadow-[0_10px_40px_rgba(0,0,0,0.25)]",
+        " z-50 mx-auto flex w-full flex-col border-b items-center justify-between bg-background/80 px-3 py-3 lg:hidden",
         className
       )}
     >
@@ -227,7 +191,7 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-xl border border-border/70 bg-background/95 px-4 py-6 shadow-[0_14px_45px_rgba(0,0,0,0.28)]",
+            "absolute inset-x-0 top-16 z-100 flex w-full flex-col items-start justify-start gap-4  border border-border/70 bg-background px-4 py-6 ",
             className
           )}
         >
@@ -258,18 +222,12 @@ export const NavbarLogo = () => {
       href="#top"
       className="relative z-20 mr-3 flex items-center space-x-3 rounded-full px-2 py-1 text-sm font-semibold text-foreground"
     >
-      <Image
-        src="/icon.png"
-        alt="Shift Studio Logo"
-        width={40}
-        height={40}
-      ></Image>
       <div className="flex flex-col leading-tight">
         <span className="text-base font-semibold text-foreground">
-          Shift Studio
+          Matchly.ai
         </span>
         <span className="text-xs font-medium text-muted-foreground">
-          Produtos que deslocam
+          Currículos prontos para ATS
         </span>
       </div>
     </a>

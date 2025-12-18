@@ -15,11 +15,12 @@ const BackgroundBeams = React.memo(({ className }: { className?: string }) => {
       <div
         aria-hidden="true"
         className={cn(
-          "absolute inset-0 hidden md:flex items-center justify-center pointer-events-none",
+          "absolute inset-0 flex items-start justify-end pointer-events-none",
           className
         )}
       >
-        <div className="h-full w-full bg-[radial-gradient(circle_at_center,rgba(24,204,252,0.15)_0%,transparent_65%)]" />
+        <div className="h-full w-full bg-[radial-gradient(circle_at_80%_12%,rgba(24,204,252,0.18)_0%,transparent_60%)] opacity-75" />
+        <div className="absolute inset-0 bg-gradient-to-l from-white via-transparent to-transparent" />
       </div>
     );
   }
@@ -79,7 +80,7 @@ const BackgroundBeams = React.memo(({ className }: { className?: string }) => {
   return (
     <div
       className={cn(
-        "absolute inset-0 h-full w-full items-center justify-center mask-no-repeat mask-size-[40px] hidden md:flex",
+        "absolute inset-0 h-full w-full items-start justify-end mask-no-repeat mask-size-[40px] hidden md:flex pr-10 pt-6",
         className
       )}
     >
