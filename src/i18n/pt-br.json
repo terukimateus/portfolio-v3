@@ -1,0 +1,117 @@
+{
+  "language": {
+    "label": "Idioma",
+    "options": {
+      "en": "EN",
+      "pt-br": "PT-BR"
+    }
+  },
+  "hero": {
+    "name": "Mateus Teruki",
+    "role": "Engenheiro de IA | Apaixonado por aplicar IA para resolver problemas reais."
+  },
+  "projects": {
+    "title": "Projetos",
+    "subtitle": "Projetos pessoais que destacam minhas habilidades em IA e desenvolvimento de software.",
+    "links": {
+      "website": "Site",
+      "npm": "NPM",
+      "repo": "Repositório"
+    },
+    "items": [
+      {
+        "name": "Matchly.ai",
+        "type": "SaaS",
+        "stack": ["LangChain", "Python", "Vite"],
+        "summary": "SaaS para analisar e reescrever currículos com compatibilidade ATS.",
+        "highlights": [
+          "Aplicação de técnicas de NLP para reescrita profissional.",
+          "RAG com bancos de dados vetoriais para enriquecer o conteúdo do currículo.",
+          "Comparação semântica entre experiência e descrição da vaga."
+        ],
+        "links": {}
+      },
+      {
+        "name": "Brazilian Docs Validator",
+        "type": "Pacote NPM",
+        "stack": ["TypeScript"],
+        "summary": "Biblioteca open-source para validar e formatar documentos brasileiros (CPF, CNPJ, PIX).",
+        "highlights": [
+          "Mais de 1.000 downloads semanais.",
+          "+ de 10 tipos de documentos suportados."
+        ],
+        "links": {
+          "npm": "https://www.npmjs.com/package/br-docs",
+          "page": "https://brdocs.terukimateus.dev/",
+          "repo": "https://github.com/terukimateus/br-docs"
+        }
+      }
+    ]
+  },
+  "experiences": {
+    "title": "Experiência Profissional",
+    "subtitle": "Uma seleção de cargos onde apliquei IA e engenharia de software para gerar impacto.",
+    "present": "Atual",
+    "duration": {
+      "year": ["ano", "anos"],
+      "month": ["mês", "meses"]
+    },
+    "items": [
+      {
+        "company": "DB1 Group",
+        "role": "Engenheiro de IA",
+        "logo": "/DB1-logo.png",
+        "start": "2025-07-01",
+        "end": null,
+        "description": [
+          "Projetei e desenvolvi um sistema multiagente com RAG para gerar prompts otimizados, aumentando a eficiência em 60%.",
+          "Desenvolvi serviços back-end em Python com Flask para orquestração de agentes, pipelines de recuperação e automações com IA.",
+          "Reduzi o tempo de bootstrap de novos projetos mantendo alta qualidade de código assistido por IA."
+        ]
+      },
+      {
+        "company": "DB1 Group",
+        "role": "Desenvolvedor Full-Stack",
+        "logo": "/DB1-logo.png",
+        "start": "2025-04-01",
+        "end": "2025-07-01",
+        "description": [
+          "Otimizei pipelines de testes unitários, reduzindo o tempo de execução em 67% (110s → 36s).",
+          "Projetei e implementei soluções full-stack escaláveis com arquitetura limpa e alta performance."
+        ]
+      }
+    ]
+  },
+  "blog": {
+    "title": "Artigos recentes",
+    "subtitle": "Insights e atualizações sobre IA, desenvolvimento de software e tecnologia.",
+    "empty": "Nenhum post disponível no momento. Volte em breve.",
+    "dateUnavailable": "Data indisponível",
+    "summaryUnavailable": "Resumo indisponível.",
+    "readMore": "Leia mais →"
+  },
+  "footer": {
+    "brandName": "Teruki Mateus",
+    "tagline": "AI Engineer • Full-Stack",
+    "description": "Produtos digitais e automações com foco em performance, clareza e impacto real no negócio.",
+    "navigation": {
+      "title": "Navegação",
+      "items": [
+        { "label": "Projetos", "href": "projects" },
+        { "label": "Experiência", "href": "experience" },
+        { "label": "Skills", "href": "skills" },
+        { "label": "Blog", "href": "blog" }
+      ]
+    },
+    "contact": {
+      "title": "Contato",
+      "description": "Disponível para novos projetos e parcerias."
+    },
+    "legal": {
+      "terms": "Termos",
+      "privacy": "Privacidade",
+      "contact": "Contato"
+    },
+    "copyright": "Todos os direitos reservados."
+  }
+}

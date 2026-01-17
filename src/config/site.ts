@@ -47,28 +47,29 @@ export type BrandContent = {
 };
 
 export const brandContent: BrandContent = {
-  name: "Matchly.ai",
-  tagline: "Currículos otimizados com AI para vagas específicas.",
+  name: "Mateus Teruki",
+  tagline: "AI Engineer",
 };
 
 export const metadataConfig: Metadata = {
   title: `${brandContent.name} · ${brandContent.tagline}`,
   description:
-    "Landing pages, sites e produtos digitais focados em clareza, velocidade e conversão. Presença digital enxuta que gera demanda e resultados.",
+    "AI Engineer focused on building scalable products, automation, and real-world AI solutions.",
   keywords: [
-    "landing pages",
-    "design de landing pages",
-    "desenvolvimento web",
-    "otimização de conversão",
-    "experiência do usuário",
-    "UX",
-    "UI",
-    "design responsivo",
-    "marketing digital",
-    "aumento de receita",
-    "aquisição de clientes",
+    "AI engineer",
+    "machine learning",
+    "LLM",
+    "RAG",
+    "NLP",
+    "Node.js",
+    "TypeScript",
+    "Python",
+    "full-stack",
+    "micro-saas",
+    "automation",
+    "portfolio",
   ],
-  authors: [{ name: "Shift Team" }],
+  authors: [{ name: brandContent.name }],
   icons: {
     icon: [
       {
@@ -80,17 +81,18 @@ export const metadataConfig: Metadata = {
   },
   creator: brandContent.name,
   // Extended SEO fields
-  metadataBase: new URL("https://shiftstudio.tech"),
+  metadataBase: new URL("https://terukimateus.dev"),
   alternates: {
-    canonical: "https://shiftstudio.tech/",
+    canonical: "https://terukimateus.dev/",
   },
   openGraph: {
     type: "website",
-    url: "https://shiftstudio.tech/",
+    url: "https://terukimateus.dev/",
     title: `${brandContent.name} · ${brandContent.tagline}`,
-    description: "Landing pages e sites com foco em conversão e performance.",
+    description:
+      "AI Engineer building scalable products, automation, and real-world AI solutions.",
     siteName: brandContent.name,
-    locale: "pt_BR",
+    locale: "en_US",
     images: [
       {
         url: "/seo.webp",
@@ -114,7 +116,7 @@ export const metadataConfig: Metadata = {
     yahoo: undefined,
     me: undefined,
     other: {
-      bing: [""],
+      bing: [],
     },
   },
   category: "business",

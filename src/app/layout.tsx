@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 
 import { AppProviders } from "@/providers/app-providers";
 import { metadataConfig } from "@/config/site";
+import { LanguageFloatingToggle } from "@/components/LanguageFloatingToggle";
 
 import "./globals.css";
 
@@ -42,7 +43,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="light">
+    <html lang="en-US" className="light">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

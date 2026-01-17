@@ -38,12 +38,13 @@ type IconProps = {
   name: string;
   size?: number;
   className?: string;
+  aria?: string;
 };
 
 import { useEffect, useMemo, useState } from "react";
 import type { IconType } from "react-icons";
 
-const Icon = ({ family, name, size = 24, className }: IconProps) => {
+const Icon = ({ family, name, size = 24, className, aria }: IconProps) => {
   const [iconFamily, setIconFamily] = useState<IconTypes>();
 
   useEffect(() => {
@@ -62,7 +63,7 @@ const Icon = ({ family, name, size = 24, className }: IconProps) => {
     return <span></span>;
   }
 
-  return <IconComponent size={size} className={className} />;
+  return <IconComponent aria-label={aria} size={size} className={className} />;
 };
 
 export default Icon;

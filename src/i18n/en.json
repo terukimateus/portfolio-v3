@@ -1,0 +1,117 @@
+{
+  "language": {
+    "label": "Language",
+    "options": {
+      "en": "EN",
+      "pt-br": "PT-BR"
+    }
+  },
+  "hero": {
+    "name": "Mateus Teruki",
+    "role": "AI Engineer | Passionate about leveraging AI to solve real-world problems."
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Personal projects showcasing my AI and software development skills.",
+    "links": {
+      "website": "Website",
+      "npm": "NPM",
+      "repo": "Repository"
+    },
+    "items": [
+      {
+        "name": "Matchly.ai",
+        "type": "SaaS",
+        "stack": ["LangChain", "Python", "Vite"],
+        "summary": "SaaS solution for analyzing and rewriting résumés for ATS compatibility.",
+        "highlights": [
+          "Applied NLP techniques for professional rewriting.",
+          "RAG with vector databases to enhance résumé content.",
+          "Semantic comparison between candidate experience and job descriptions."
+        ],
+        "links": {}
+      },
+      {
+        "name": "Brazilian Docs Validator",
+        "type": "NPM Package",
+        "stack": ["TypeScript"],
+        "summary": "Open-source library for validating and formatting Brazilian documents (CPF, CNPJ, PIX).",
+        "highlights": [
+          "Over 1,000 weekly downloads.",
+          "+ than 10 type of documents supported."
+        ],
+        "links": {
+          "npm": "https://www.npmjs.com/package/br-docs",
+          "page": "https://brdocs.terukimateus.dev/",
+          "repo": "https://github.com/terukimateus/br-docs"
+        }
+      }
+    ]
+  },
+  "experiences": {
+    "title": "Professional Experience",
+    "subtitle": "A selection of roles where I've applied AI and software engineering to drive impactful solutions.",
+    "present": "Present",
+    "duration": {
+      "year": ["year", "years"],
+      "month": ["month", "months"]
+    },
+    "items": [
+      {
+        "company": "DB1 Group",
+        "role": "AI Engineer",
+        "logo": "/DB1-logo.png",
+        "start": "2025-07-01",
+        "end": null,
+        "description": [
+          "Designed and developed a multi-agent AI system with RAG for generating optimized prompts, improving development efficiency by 60%.",
+          "Developed back-end services in Python with Flask for agent orchestration, retrieval workflows, and AI-powered automations.",
+          "Reduced the time required to bootstrap new projects while maintaining high-quality AI-assisted code."
+        ]
+      },
+      {
+        "company": "DB1 Group",
+        "role": "Full-Stack Developer",
+        "logo": "/DB1-logo.png",
+        "start": "2025-04-01",
+        "end": "2025-07-01",
+        "description": [
+          "Optimized unit testing pipelines, cutting execution time by 67% (110s → 36s) and accelerating developer feedback loops.",
+          "Designed and implemented scalable full-stack solutions with clean architecture and high performance."
+        ]
+      }
+    ]
+  },
+  "blog": {
+    "title": "Recent Articles",
+    "subtitle": "Insights and updates on AI, software development, and technology.",
+    "empty": "No posts available at the moment. Please check back later.",
+    "dateUnavailable": "Date unavailable",
+    "summaryUnavailable": "Summary not available.",
+    "readMore": "Read more →"
+  },
+  "footer": {
+    "brandName": "Teruki Mateus",
+    "tagline": "AI Engineer • Full-Stack",
+    "description": "Digital products and automations focused on performance, clarity, and measurable impact.",
+    "navigation": {
+      "title": "Navigation",
+      "items": [
+        { "label": "Projects", "href": "projects" },
+        { "label": "Experience", "href": "experience" },
+        { "label": "Skills", "href": "skills" },
+        { "label": "Blog", "href": "blog" }
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Available for new projects and partnerships."
+    },
+    "legal": {
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "contact": "Contact"
+    },
+    "copyright": "All rights reserved."
+  }
+}
