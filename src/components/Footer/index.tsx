@@ -1,13 +1,9 @@
 "use client";
 
 import type { MouseEvent } from "react";
-import Link from "next/link";
 
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useI18n } from "@/providers/i18n-provider";
-import type { Language } from "@/providers/i18n-provider";
 
-const contactEmail = "contato@terukimateus.dev";
 const scrollOffset = 100;
 
 export function Footer() {
