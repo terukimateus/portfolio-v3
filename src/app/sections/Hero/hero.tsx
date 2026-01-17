@@ -45,7 +45,7 @@ export function Hero() {
 
         <div id="socials" className="flex gap-4">
           <a
-            href="https://www.linkedin.com/in/mateus-teruki/"
+            href="https://www.linkedin.com/in/terukimateus/"
             target="_blank"
             rel="noopener noreferrer"
           >
