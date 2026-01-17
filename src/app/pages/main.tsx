@@ -1,6 +1,4 @@
 import { Footer } from "@/components/Footer";
-import NavbarFeat from "@/components/Navbar";
-import { ScrollRevealSection } from "@/components/ScrollRevealSection";
 import { Hero } from "../sections/Hero/hero";
 import { Skills } from "../sections/Skills/skills";
 import { Experiences } from "../sections/Experiences/experiences";

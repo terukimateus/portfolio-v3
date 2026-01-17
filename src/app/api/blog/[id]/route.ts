@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 
 const articles: Record<string, { title: string; date: string; body: string }> =
   {
@@ -38,8 +38,12 @@ const articles: Record<string, { title: string; date: string; body: string }> =
     },
   };
 
-export async function GET(_: Request, { params }: { params: { id: string } }) {
-  const article = articles[params.id];
+export async function GET(
+  _: NextRequest,
+  context: { params: Promise<{ id: string }> }
+) {
+  const { id } = await context.params;
+  const article = articles[id];
 
   if (!article) {
     return NextResponse.json(

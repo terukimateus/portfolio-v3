@@ -1,18 +1,11 @@
 "use client";
 
 import type { LucideIcon } from "lucide-react";
-import { FileText, ShieldCheck, Sparkles, Unlock } from "lucide-react";
-
-import PlanetIllustration from "@/components/PlanetIllustration";
-import { Safari } from "@/components/SafariMockup/safari";
-import { Button } from "@/components/ui/button";
-import { MagicButton } from "@/components/ui/magic-button";
+import { FileText, Sparkles, Unlock } from "lucide-react";
 import Image from "next/image";
-import { LuGithub, LuLinkedin, LuTwitter } from "react-icons/lu";
+import { LuGithub, LuLinkedin } from "react-icons/lu";
 import Icon from "@/components/Icon";
 import { useI18n } from "@/providers/i18n-provider";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import type { Language } from "@/providers/i18n-provider";
 import { LanguageFloatingToggle } from "@/components/LanguageFloatingToggle";
 
 type TrustPoint = {

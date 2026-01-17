@@ -42,7 +42,7 @@ export default async function BlogArticlePage({
               {fetchError}
             </div>
           )}
-          <h1 className="text-3xl font-semibold text-primary">
+          <h1 className="text-3xl font-bold">
             {article?.title ?? "Untitled Article"}
           </h1>
           <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
