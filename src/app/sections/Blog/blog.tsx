@@ -1,35 +1,61 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { getBlogPosts } from "@/lib/notion";
-import { cookies } from "next/headers";
 
-import en from "@/i18n/en.json";
-import ptBr from "@/i18n/pt-br.json";
+import { useI18n } from "@/providers/i18n-provider";
 
-const dictionaries = {
-  en,
-  "pt-br": ptBr,
-} as const;
+type BlogPost = {
+  id: string;
+  slug: string;
+  title: string;
+  summary?: string | null;
+  publishedAt?: string | null;
+};
 
-async function getDictionary() {
-  const stored = (await cookies()).get("portfolio-language")?.value;
-  if (stored && stored in dictionaries) {
-    return dictionaries[stored as keyof typeof dictionaries];
-  }
-  return dictionaries.en;
-}
+export function Blog() {
+  const { dictionary } = useI18n();
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-export async function Blog() {
-  const dictionary = await getDictionary();
-  const posts = await getBlogPosts();
+  useEffect(() => {
+    let isMounted = true;
+    async function loadPosts() {
+      try {
+        const response = await fetch("/api/blog", { cache: "no-store" });
+        if (!response.ok) {
+          return;
+        }
+        const data = (await response.json()) as BlogPost[];
+        if (isMounted) {
+          setPosts(data);
+        }
+      } catch {
+        // ignore
+      } finally {
+        if (isMounted) {
+          setIsLoading(false);
+        }
+      }
+    }
 
-  const max3postsorderedbydate = posts
-    .sort((a, b) => {
-      const dateA = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
-      const dateB = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
-      return dateB - dateA;
-    })
-    .slice(0, 3);
+    loadPosts();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const max3postsorderedbydate = useMemo(() => {
+    return [...posts]
+      .sort((a, b) => {
+        const dateA = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+        const dateB = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+        return dateB - dateA;
+      })
+      .slice(0, 3);
+  }, [posts]);
 
   return (
     <section id="blog" className="relative border-b overflow-hidden bg-stripes">
@@ -41,7 +67,11 @@ export async function Blog() {
       </div>
       <div className="flex flex-1 border-x w-full h-full mx-auto max-w-xs md:max-w-6xl bg-background flex-col gap-6">
         <div className="flex w-full flex-col">
-          {max3postsorderedbydate.length === 0 ? (
+          {isLoading ? (
+            <p className="px-5 py-8 text-sm text-muted-foreground">
+              {dictionary.blog.empty}
+            </p>
+          ) : max3postsorderedbydate.length === 0 ? (
             <p className="px-5 py-8 text-sm text-muted-foreground">
               {dictionary.blog.empty}
             </p>
@@ -51,7 +81,11 @@ export async function Blog() {
                 key={post.id}
                 className={cn(
                   "flex flex-col p-5 gap-4",
-                  `${idx < posts.length - 1 ? "border-b border-border" : ""}`
+                  `${
+                    idx < max3postsorderedbydate.length - 1
+                      ? "border-b border-border"
+                      : ""
+                  }`
                 )}
               >
                 <div className="flex items-start flex-wrap justify-between gap-4">
