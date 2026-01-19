@@ -60,9 +60,19 @@ export function Blog() {
   return (
     <section id="blog" className="relative border-b overflow-hidden bg-stripes">
       <div className="bg-background border-b w-full">
-        <div className="flex flex-col mx-auto border-x max-w-xs md:max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
-          <h2 className="text-3xl font-semibold">{dictionary.blog.title}</h2>
-          <p className="text-sm text-muted">{dictionary.blog.subtitle}</p>
+        <div className="flex mx-auto justify-between items-center border-x max-w-xs md:max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex flex-col">
+            <h2 className="text-3xl font-semibold">{dictionary.blog.title}</h2>
+            <p className="text-sm text-muted">{dictionary.blog.subtitle}</p>
+          </div>
+          <Link
+            href="https://blog.terukimateus.dev"
+            target="_blank"
+            className="text-sm font-semibold underline-offset-4 hover:underline"
+            rel="noopener noreferrer"
+          >
+            {`${dictionary.blog.visitBlog}`}
+          </Link>
         </div>
       </div>
       <div className="flex flex-1 border-x w-full h-full mx-auto max-w-xs md:max-w-6xl bg-background flex-col gap-6">
@@ -100,7 +110,9 @@ export function Blog() {
                   {post.summary || dictionary.blog.summaryUnavailable}
                 </p>
                 <Link
-                  href={`/blog/${post.slug}`}
+                  href={`https://blog.terukimateus.dev/blog/${post.slug}`}
+                  rel="noopener noreferrer"
+                  target="_blank"
                   className="text-sm font-semibold underline-offset-4 hover:underline"
                 >
                   {dictionary.blog.readMore}

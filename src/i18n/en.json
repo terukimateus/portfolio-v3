@@ -88,7 +88,8 @@
     "empty": "No posts available at the moment. Please check back later.",
     "dateUnavailable": "Date unavailable",
     "summaryUnavailable": "Summary not available.",
-    "readMore": "Read more →"
+    "readMore": "Read more →",
+    "visitBlog": "Go to Blog"
   },
   "footer": {
     "brandName": "Teruki Mateus",
